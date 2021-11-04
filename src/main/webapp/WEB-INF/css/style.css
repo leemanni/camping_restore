@@ -1,0 +1,22 @@
+@charset "UTF-8";
+/* content */
+@import url("./content/table.css");
+@import url("./content/button.css");
+@import url("./content/footer.css");
+/* screen */
+@import url("./screen/mainHeader.css");
+
+html{
+	padding: 0;
+	margin: 0;
+}
+body {
+	background-color: teal;
+	color: white;
+	margin: 0;
+	padding: 0;
+}
+
+.userComment-hidden{
+	display: none;
+}

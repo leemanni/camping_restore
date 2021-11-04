@@ -1,0 +1,44 @@
+@charset "UTF-8";
+.btn-none-index,
+a{
+	color: white;
+	text-decoration: none;
+}
+a:hover{
+	color: orange;
+}
+.freeboard-header_writebtn{
+	width: 300px;
+	height: 50px;
+}
+.freeboard-header-link__writebtn:hover,
+.fa-pencil:hover {
+	cursor: pointer;
+}
+.btn-none{
+	opacity: 0.3;
+}
+.btn-none:hover {
+	color: white;
+	opacity: 0.3;
+}
+
+.btn-none-index:hover{
+	color: teal;
+	opacity: 0.3;
+	cursor: help;
+}
+.btn-number:hover{
+	cursor: pointer;
+}
+
+.button{
+	border: 1px solid gray;
+	background-color: white;
+	border-radius: 7px;
+	color: teal;
+	font-weight: 600;
+}
+.button:hover {
+	opacity: 0.7;
+}

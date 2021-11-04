@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.dao.CampingDAO">
+
+	<insert id="insert" parameterType="vo">
+		INSERT INTO CAMPING (IDX, NAME , CONTENT, PW, CAMPNUMBER) values(camping_idx_seq.nextval, #{name}, #{content}, #{pw}, #{campNumber})
+	</insert>
+
+	<!-- 전체 글 개수 구하기 -->
+	<select id="selectCount" resultType="int">
+		select count(*) from CAMPING where campNumber = #{campNumber}
+	</select>
+
+	<!-- 1페이지 분량 글 받기 -->
+	<select id="selectList" parameterType="java.util.HashMap" resultType="vo">
+				select * from (
+					select rownum rnum, TT.* from (
+							select * from camping where campNumber = #{campNumber} order by idx desc
+						)TT
+					) where rnum between #{startNo} and #{endNo}
+	</select>
+
+</mapper>

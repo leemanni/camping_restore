@@ -1,0 +1,29 @@
+@charset "UTF-8";
+table {
+	border: 2px solid white;
+	padding: 1px;
+	cellpadding: 2px;
+	margin-bottom: 30px;
+}
+
+td,th{
+	border-bottom: 2px solid white;
+	padding: 5px 2px;
+	margin: 0;
+}
+th{
+	font-size: 30px;
+}
+.table-idx,
+.table_border{
+	border-right: 2px solid white;
+}
+.table-subject{
+	padding-left: 10px;
+}
+.table-lastdata{
+	border: 0px;
+}
+.comment-table tr:last-child td{
+	border-bottom: 0px;
+}

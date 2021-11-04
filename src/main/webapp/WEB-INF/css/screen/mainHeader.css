@@ -1,0 +1,32 @@
+@charset "UTF-8";
+.freeboard-header{
+	width: 1000px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	margin-left: 169px;
+}
+.freeboard-header__title{
+	display:flex;
+	justify-content: center;
+}
+.freeboard-header-link{
+	width: 160px;
+	height: 40px;
+	display: flex;
+	justify-content: center;
+	align-item:center;
+	background-color: white;
+	margin-bottom: 10px;
+	border-radius: 20px;
+	position: relative;
+	top: 25px;
+}
+.freeboard-header-link__writebtn{
+	color: teal;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	
+	
+}
