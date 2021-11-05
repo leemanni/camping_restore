@@ -19,5 +19,16 @@
 						)TT
 					) where rnum between #{startNo} and #{endNo}
 	</select>
+	
+	<!-- 좋아요 증가 -->
+	<update id="up" parameterType="int">
+		update camping set up = up + 1 where idx = #{idx}
+	</update>
 
+	<!-- 싫어요 증가 -->
+	<update id="down" parameterType="int">
+		update camping set down = down + 1 where idx = #{idx}
+	</update>
+	
+	
 </mapper>

@@ -16,9 +16,11 @@
 <c:set var="list" value="${campingList.list}"/>
 <header class="freeboard-header">
 	<h1 class="freeboard-header__title">212 ~ 자유 게시판  ~ </h1>
+	<!-- 관리자 여부 확인!!! -->
+	<h1 class="freeboard-header__title">${manager}</h1>
 	<div class="freeboard-header-link">
-		<a class="freeboard-header-link__writebtn" onclick="location.href='insert'">
-			<i class="fa fa-pencil"> 새 글 쓰기</i>
+		<a class="freeboard-header-link__writebtn" onclick="location.href='loginMain'">
+			<i class="fa fa-pencil">관리자 로그인</i>
 		</a>
 	</div>
 </header>
@@ -28,7 +30,8 @@
 			<td width="640" align="center">제목</td>
 			<td width="100" align="center">이름</td>
 			<td width="120" align="center">작성일</td>
-			<td width="70" align="center">조회수</td>
+			<td width="70" align="center">좋아요</td>
+			<td width="70" align="center">싫어요</td>
 		</tr>
 		<!-- 글이 1건도 없을 때 -->
 		<c:if test="${list.size() == 0 }">
@@ -65,7 +68,10 @@
 	 				</c:if>
 				</td>
 				<td align="center">
- 					${vo.up}
+ 					<input type="button" value="${vo.up}" onclick="location.href='up?campNumber=${campNumber}&idx=${vo.idx}&currentPage=${campingList.currentPage}'">
+	 			</td>
+	 			<td align="center">
+ 					<input type="button" value="${vo.down}" onclick="location.href='down?campNumber=${campNumber}&idx=${vo.idx}&currentPage=${campingList.currentPage}'">
 	 			</td>
 			</tr>
 			</c:forEach>
@@ -75,7 +81,7 @@
 			<td class="table-lastdata" align="center" colspan="5">
 			<!-- 처음으로 -->
 				<c:if test="${campingList.currentPage > 1}">
-					<a onclick="location.href='?currentPage=1'" >
+					<a onclick="location.href='?campNumber=${campNumber}&currentPage=1'" >
 						<i class="fas fa-backward"></i>
 					</a>
 				</c:if>
@@ -88,7 +94,7 @@
 				</c:if>
 			<!-- 10페이지 앞으로 -->
 				<c:if test="${campingList.startPage > 1}">
-					<a onclick="location.href='?currentPage=${campingList.startPage - 1}'" >
+					<a onclick="location.href='?campNumber=${campNumber}&currentPage=${campingList.startPage - 1}'" >
 						<i class="fas fa-chevron-left"></i>
 					</a>
 				</c:if>
@@ -104,14 +110,14 @@
 						</a>
 					</c:if>
 					<c:if test="${campingList.currentPage != i}">
-						<a class="btn-number" onclick="location.href='?currentPage=${i}'">
+						<a class="btn-number" onclick="location.href='?campNumber=${campNumber}&currentPage=${i}'">
 							${i}
 						</a>
 					</c:if>
 				</c:forEach>
 			<!-- 10페이지 뒤로 -->
 				<c:if test="${campingList.currentPage < campingList.totalPage}">
-					<a onclick="location.href='?currentPage=${campingList.endPage +1}'" >
+					<a onclick="location.href='?campNumber=${campNumber}&currentPage=${campingList.endPage +1}'" >
 						<i class="fas fa-chevron-right"></i>
 					</a>
 				</c:if>
@@ -123,12 +129,12 @@
 				
 			<!-- 맨뒤로 -->
 				<c:if test="${campingList.currentPage < campingList.totalPage}">
-					<a onclick="location.href='?currentPage=${campingList.totalPage}&camNumber=${campNumber}'">
+					<a onclick="location.href='?campNumber=${campNumber}&currentPage=${campingList.totalPage}'">
 						<i class="fas fa-forward" ></i>
 					</a>
 				</c:if>
 				<c:if test="${campingList.currentPage >= campingList.totalPage}">
-					<a class=btn-none onclick="location.href='?currentPage=${campingList.totalPage}'">
+					<a class=btn-none onclick="location.href='?campNumber=${campNumber}&currentPage=${campingList.totalPage}'">
 						<i class="fas fa-forward" ></i>
 					</a>
 				</c:if>

@@ -1,12 +1,19 @@
 @charset "UTF-8";
+/* various */
+@import url("./various.css");
 /* content */
 @import url("./content/table.css");
 @import url("./content/button.css");
 @import url("./content/footer.css");
 /* screen */
 @import url("./screen/mainHeader.css");
+@import url("./screen/loginmain.css");
+@import url("./screen/stocksView.css");
+@import url("./screen/footer.css");
+/* bootstarp */
+@import url("./bootstrap.css");
 
-html{
+/* html{
 	padding: 0;
 	margin: 0;
 }
@@ -19,4 +26,8 @@ body {
 
 .userComment-hidden{
 	display: none;
+}
+               */
+ a{
+	color: inherit;
 }

@@ -14,5 +14,11 @@ public interface CampingDAO {
 
 	ArrayList<CampingVO> selectList(HashMap<String, Integer> hmap);
 
+	void up(int idx);
+
+	void down(int idx);
+
+	int loginCheck(HashMap<String, String> hmap);
+
 
 }

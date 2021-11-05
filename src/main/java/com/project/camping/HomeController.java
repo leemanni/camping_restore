@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,9 +33,49 @@ public class HomeController {
 		
 		return "home";
 	}
-
+	
+	/**
+	 * 관리자 로그인 페이지 연결
+	 */
+	@RequestMapping("/loginMain")
+	public String loginMain(HttpServletRequest request, Model model) {
+		return "loginMain";
+	}
+	/**
+	 * 관리자 로그인 확인
+	 */
+	@RequestMapping("/loginOK")
+	public String loginOK(HttpServletRequest request, Model model) {
+		
+		String id = request.getParameter("id");
+		String pw = request.getParameter("pw");
+		
+		
+		CampingDAO dao = sqlSession.getMapper(CampingDAO.class);
+		HashMap<String, String> hmap = new HashMap<String, String>();
+		hmap.put("id", id);
+		hmap.put("pw", pw);
+		int check = dao.loginCheck(hmap);
+		
+		if(check > 0) {
+			System.out.println("true");
+//			세션 테스트
+			HttpSession session = request.getSession();
+//			세션 변수 저장
+			session.setAttribute("manager", "true");
+			
+		}else {
+			System.out.println("false");
+		}
+		
+		
+		return "redirect:list";
+	}
+	
+	
 	@RequestMapping("/insert")
 	public String insert(HttpServletRequest request, Model model) {
+		
 		
 		CampingDAO dao = sqlSession.getMapper(CampingDAO.class);
 		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("classpath:application_ctx.xml");
@@ -57,17 +98,16 @@ public class HomeController {
 		CampingDAO dao = sqlSession.getMapper(CampingDAO.class);
 		int pageSize = 10;
 		int currentPage = 1;
-		// 캠프넘버 안넘어가짐
 		int campNumber = 0; // 캠핑장 구분 index
 		try {
-			currentPage = Integer.parseInt(request.getParameter("currentPage"));
-			System.out.println("in");
 			campNumber = Integer.parseInt(request.getParameter("campNumber"));
+			currentPage = Integer.parseInt(request.getParameter("currentPage"));
+//			System.out.println("in");
 		} catch (Exception e) {
 		}
-		System.out.println("!!!!!!! =>" + campNumber);
+//		System.out.println("!!!!!!! =>" + campNumber);
 		int totalCount =  dao.selectCount(campNumber);
-		System.out.println(totalCount);
+//		System.out.println(totalCount);
 		CampingList campingList = ctx.getBean("list", CampingList.class);
 	
 		campingList.initMvcboardList(pageSize, totalCount, currentPage);
@@ -88,7 +128,54 @@ public class HomeController {
 	
 	
 	
+	@RequestMapping("/up")
+	public String up(HttpServletRequest request, Model model) {
+		System.out.println("컨트롤러의 increment() 메소드");
 	
+		CampingDAO mapper = sqlSession.getMapper(CampingDAO.class);
+		
+		int currentPage = 1;
+		int campNumber = 0;
+		try {
+			campNumber = Integer.parseInt(request.getParameter("campNumber"));
+			currentPage = Integer.parseInt(request.getParameter("currentPage"));
+		} catch (Exception e) {
+		}
+//		request 객체로 넘어온 조회수를 증가시킬 글번호를 받는다.		
+		int idx = Integer.parseInt(request.getParameter("idx"));
+//		조회수를 증가시키는 메소드를 실행한다.
+		mapper.up(idx);
+
+		model.addAttribute("idx", idx);
+		model.addAttribute("campNumber", campNumber);
+		model.addAttribute("currentPage", currentPage);
+		return "redirect:list";
+	}
+	
+	@RequestMapping("/down")
+	public String down(HttpServletRequest request, Model model) {
+		System.out.println("컨트롤러의 increment() 메소드");
+	
+		CampingDAO mapper = sqlSession.getMapper(CampingDAO.class);
+		
+		int currentPage = 1;
+		int campNumber = 0;
+		try {
+			campNumber = Integer.parseInt(request.getParameter("campNumber"));
+			currentPage = Integer.parseInt(request.getParameter("currentPage"));
+		} catch (Exception e) {
+		}
+		
+//		request 객체로 넘어온 조회수를 증가시킬 글번호를 받는다.		
+		int idx = Integer.parseInt(request.getParameter("idx"));
+//		조회수를 증가시키는 메소드를 실행한다.
+		mapper.down(idx);
+		
+		model.addAttribute("idx", idx);
+		model.addAttribute("campNumber", campNumber);
+		model.addAttribute("currentPage", currentPage);
+		return "redirect:list";
+	}
 	
 	
 	
