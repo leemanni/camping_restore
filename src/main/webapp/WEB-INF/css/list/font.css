@@ -1,0 +1,142 @@
+@charset "UTF-8"; 
+
+/* 배달의민족도현체 */
+@font-face{
+	font-family:'BM_dh';
+	font-weight: normal;
+    font-style: normal;
+	src:url("/font/BMDH.eot");
+	src:url("/font/BMDH.eot?#iefix") format('embedded-opentype'),
+		url("/font/BMDH.woff") format('woff'),
+		url("/font/BMDH.ttf") format('truetype');
+}
+
+/* 나눔고딕 */
+@font-face{
+	font-family:'NanumG';
+	font-weight: normal;
+    font-style: normal;
+	src:url("/font/NanumGothic.eot");
+	src:url("/font/NanumGothic.eot?#iefix") format('embedded-opentype'),
+		url("/font/NanumGothic.woff") format('woff'),
+		url("/font/NanumGothic.ttf") format('truetype');
+}
+@font-face{
+	font-family:'NanumG_B';
+	font-weight: normal;
+    font-style: normal;
+	src:url("/font/NanumGothicB.eot");
+	src:url("/font/NanumGothicB.eot?#iefix") format('embedded-opentype'),
+		url("/font/NanumGothicB.woff") format('woff'),
+		url("/font/NanumGothicB.ttf") format('truetype');
+}
+@font-face{
+	font-family:'NanumG_EB';
+	font-weight: normal;
+    font-style: normal;
+	src:url("/font/NanumGothicEB.eot");
+	src:url("/font/NanumGothicEB.eot?#iefix") format('embedded-opentype'),
+		url("/font/NanumGothicEB.woff") format('woff'),
+		url("/font/NanumGothicEB.ttf") format('truetype');
+}
+
+/* 나눔스퀘어 */
+@font-face{
+	font-family:'NanumS';
+	font-weight: normal;
+    font-style: normal;
+	src:url("/font/NanumSquareR.eot");
+	src:url("/font/NanumSquareR.eot?#iefix") format('embedded-opentype'),
+		url("/font/NanumSquareR.woff") format('woff'),
+		url("/font/NanumSquareR.ttf") format('truetype');
+}
+@font-face{
+	font-family:'NanumS_B';
+	font-weight: normal;
+    font-style: normal;
+	src:url("/font/NanumSquareB.eot");
+	src:url("/font/NanumSquareB.eot?#iefix") format('embedded-opentype'),
+		url("/font/NanumSquareB.woff") format('woff'),
+		url("/font/NanumSquareB.ttf") format('truetype');
+}
+@font-face{
+	font-family:'NanumS_EB';
+	font-weight: normal;
+    font-style: normal;
+	src:url("/font/NanumSquareEB.eot");
+	src:url("/font/NanumSquareEB.eot?#iefix") format('embedded-opentype'),
+		url("/font/NanumSquareEB.woff") format('woff'),
+		url("/font/NanumSquareEB.ttf") format('truetype');
+}
+
+/* 나눔바른펜 */
+@font-face{
+	font-family:'NanumB';
+	font-weight: normal;
+    font-style: normal;
+	src:url("/font/NanumBarunpenR.eot");
+	src:url("/font/NanumBarunpenR.eot?#iefix") format('embedded-opentype'),
+		url("/font/NanumBarunpenR.woff") format('woff'),
+		url("/font/NanumBarunpenR.ttf") format('truetype');
+}
+
+/* tvN 즐거운이야기 */
+@font-face{
+	font-family:'tvN_L';
+	font-weight: normal;
+    font-style: normal;
+	src:url("/font/tvN_Light.eot");
+	src:url("/font/tvN_Light.eot?#iefix") format('embedded-opentype'),
+		url("/font/tvN_Light.woff") format('woff'),
+		url("/font/tvN_Light.ttf") format('truetype');
+}
+@font-face{
+	font-family:'tvN_M';
+	font-weight: normal;
+    font-style: normal;
+	src:url("/font/tvN_Medium.eot");
+	src:url("/font/tvN_Medium.eot?#iefix") format('embedded-opentype'),
+		url("/font/tvN_Medium.woff") format('woff'),
+		url("/font/tvN_Medium.ttf") format('truetype');
+}
+@font-face{
+	font-family:'tvN_B';
+	font-weight: normal;
+    font-style: normal;
+	src:url("/font/tvN_Bold.eot");
+	src:url("/font/tvN_Bold.eot?#iefix") format('embedded-opentype'),
+		url("/font/tvN_Bold.woff") format('woff'),
+		url("/font/tvN_Bold.ttf") format('truetype');
+}
+
+/* 제주고딕 */
+@font-face{
+	font-family:'JejuG';
+	font-weight: normal;
+    font-style: normal;
+	src:url("/font/JejuGothic.eot");
+	src:url("/font/JejuGothic.eot?#iefix") format('embedded-opentype'),
+		url("/font/JejuGothic.woff") format('woff'),
+		url("/font/JejuGothic.ttf") format('truetype');
+}
+
+/* 고도 */
+@font-face{
+	font-family:'godo_B';
+	font-weight: normal;
+	font-weight: normal;
+	src:url("/font/GODOB.eot");
+	src:url("/font/GODOB.eot?#iefix") format('embedded-opentype'),
+		url("/font/GODOB.woff") format('woff'),
+		url("/font/GODOB.ttf") format('truetype');
+}
+
+@font-face{
+	font-family:'godo_M';
+	font-weight: normal;
+	font-weight: normal;
+	src:url("/font/GODOM.eot");
+	src:url("/font/GODOM.eot?#iefix") format('embedded-opentype'),
+		url("/font/GODOM.woff") format('woff'),
+		url("/font/GODOM.ttf") format('truetype');
+}

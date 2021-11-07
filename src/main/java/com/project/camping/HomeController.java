@@ -28,17 +28,15 @@ public class HomeController {
 	@Autowired
 	private SqlSession sqlSession;
 	
-//	@RequestMapping(value = "/", method = RequestMethod.GET)
-//	public String home(Locale locale, Model model) {
-//		
-//		return "home";
-//	}
-//	
 	@RequestMapping("/")
+	public String home(HttpServletRequest request, Model model) {
+		return "redirect:mainpage";
+	}
+	
+	@RequestMapping("/mainpage")
 	public String mainpage(HttpServletRequest request, Model model) {
 		return "mainpage";
 	}
-	
 	
 	/**
 	 * 관리자 로그인 페이지 연결

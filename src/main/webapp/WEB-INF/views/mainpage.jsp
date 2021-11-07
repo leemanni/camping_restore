@@ -5,11 +5,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>캠핑 리뷰 사이트(이름 미정)</title>
-<link rel="stylesheet" href="css/mainpage/bootstrap.css">
+<link rel="stylesheet" href="./css/bootstrap.css">
 <link rel="stylesheet" href="css/mainpage/mainpage.css">
 <link rel="stylesheet" href="css/mainpage/topmenu.css">
 <link rel="stylesheet" href="js/mainpage.mainpage.js">
-<link rel="icon" href="./images/favicon.png">
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="./js/bootstrap.js"></script>
@@ -19,12 +18,12 @@
 
 <!-- ================================================================================================================================== -->
 <!-- 내비게이션 바 -->
-<% 
+<%-- <% 
 		String userID = null;
 		if(session.getAttribute("userID") != null) {
 			userID = (String) session.getAttribute("userID");
 		}
-	%>
+	%> --%>
 <nav class="navbar navbar-default">
 	<div class="container-fluid">
 		<div class="navbar-header">
@@ -35,7 +34,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="index.jsp">캠핑 리뷰 사이트(이름 미정)</a>
+			<a class="navbar-brand" href="mainpage">캠핑 리뷰 사이트(이름 미정)</a>
 		</div>
 		
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -155,10 +154,10 @@
 				</li>
 			</ul>
 
-			<%
+		<%-- 	<%
 			 // 접속하기는 로그인이 되어있지 않은 경우만 나오게한다
 				if(userID == null) {
-			%>
+			%> --%>
 		
 			<div class="nav navbar-nav navbar-right">
 				<li class="dropdown">
@@ -166,12 +165,15 @@
 						접속하기<span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
-						<li><a href="mainlogin">로그인</a></li>
+						<li><a href="loginMain">로그인</a></li>
 						<li><a href="register">회원가입</a></li>
 					</ul>
 					
 				</li>
 			</div>
+			<%-- 
+				요부분은 나중에 관리자 모드할 때 써먹을 수 있을 거 같아서 냅둔 - 백엔트 : 이원희
+			
 			<%
 			 // 로그인이 되어있는 사람만 볼수 있는 화면
 				} else {
@@ -189,7 +191,7 @@
 			</div>
 			<%
 				}
-			%>
+			%> --%>
 			</div>
 		</div>
 </nav>
