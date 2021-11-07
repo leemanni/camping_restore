@@ -5359,9 +5359,9 @@ a.thumbnail.active {
 .list-group-item.active:hover,
 .list-group-item.active:focus {
   z-index: 2;
-  color: #CEB5F2;
-  background-color: #CEB5F2;
-  border-color: #CEB5F2;
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #337ab7;
 }
 .list-group-item.active .list-group-item-heading,
 .list-group-item.active:hover .list-group-item-heading,
@@ -5377,7 +5377,7 @@ a.thumbnail.active {
 .list-group-item.active .list-group-item-text,
 .list-group-item.active:hover .list-group-item-text,
 .list-group-item.active:focus .list-group-item-text {
-  color: #CEB5F2;
+  color: #c7ddef;
 }
 a.list-group-item,
 button.list-group-item {

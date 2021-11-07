@@ -28,11 +28,17 @@ public class HomeController {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
-		
-		return "home";
+//	@RequestMapping(value = "/", method = RequestMethod.GET)
+//	public String home(Locale locale, Model model) {
+//		
+//		return "home";
+//	}
+//	
+	@RequestMapping("/")
+	public String mainpage(HttpServletRequest request, Model model) {
+		return "mainpage";
 	}
+	
 	
 	/**
 	 * 관리자 로그인 페이지 연결
@@ -61,7 +67,7 @@ public class HomeController {
 			System.out.println("true");
 //			세션 테스트
 			HttpSession session = request.getSession();
-//			세션 변수 저장
+//			세션 변수 저장 => 세션이 저장됐다(= 관리자 로그인이 됐다) => h1 테그(list.jsp) 에서 true 라고 뜰거임
 			session.setAttribute("manager", "true");
 			
 		}else {
@@ -73,9 +79,14 @@ public class HomeController {
 	}
 	
 	
+	/**
+	 * @param request
+	 * @param model
+	 * @return
+	 * 댓글 추가하는 메소드
+	 */
 	@RequestMapping("/insert")
 	public String insert(HttpServletRequest request, Model model) {
-		
 		
 		CampingDAO dao = sqlSession.getMapper(CampingDAO.class);
 		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("classpath:application_ctx.xml");
@@ -92,6 +103,12 @@ public class HomeController {
 	}
 	
 	
+	/**
+	 * @param request
+	 * @param model
+	 * @return
+	 * 선택한 캠핑장의 댓글을 불러와주는 메소드
+	 */
 	@RequestMapping("/list")
 	public String count(HttpServletRequest request, Model model) {
 		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("classpath:application_ctx.xml");
@@ -128,6 +145,12 @@ public class HomeController {
 	
 	
 	
+	/**
+	 * @param request
+	 * @param model
+	 * @return
+	 * 댓글에 좋아요를 클릭하면 좋아요 횟수를 올려주는 메소드
+	 */
 	@RequestMapping("/up")
 	public String up(HttpServletRequest request, Model model) {
 		System.out.println("컨트롤러의 increment() 메소드");
@@ -151,7 +174,12 @@ public class HomeController {
 		model.addAttribute("currentPage", currentPage);
 		return "redirect:list";
 	}
-	
+	/**
+	 * @param request
+	 * @param model
+	 * @return
+	 * 댓글에 싫어요 클릭하면 좋아요 횟수를 올려주는 메소드
+	 */
 	@RequestMapping("/down")
 	public String down(HttpServletRequest request, Model model) {
 		System.out.println("컨트롤러의 increment() 메소드");
@@ -178,7 +206,32 @@ public class HomeController {
 	}
 	
 	
+	@RequestMapping("/mainlogin")
+   public String mainlogin(HttpServletRequest request, Model model) {
+      return "mainlogin";
+   }
+   
 	
 	
+	
+   @RequestMapping("/instructor")
+   public String instructor(HttpServletRequest request, Model model) {
+      return "instructor";
+   }
+   
+   @RequestMapping("/register")
+   public String register(HttpServletRequest request, Model model) {
+	   return "register";
+   }
+   
+   @RequestMapping("/lecture")
+   public String lecture(HttpServletRequest request, Model model) {
+	   return "register";
+   }
+   
+   @RequestMapping("/path")
+   public String path(HttpServletRequest request, Model model) {
+	   return "path";
+   }
 	
 }
