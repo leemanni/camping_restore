@@ -1,3 +1,15 @@
+
+
+
+
+
+
+
+
+
+
+
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -6,14 +18,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
-<link rel="icon" href="images/favicon/favicon.ico" type="image/x-icon">
-
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/mainpage/mainpage.css">
 <link rel="stylesheet" href="css/mainpage/topmenu.css">  <!-- 지역별 토글 지정돼 있음 자우면 안됨 -->
 <link rel="stylesheet" type="text/css" href="css/list/style.css" />
-
+<link rel="icon" href="images/favicon/favicon.ico" type="image/x-icon">
 <script type="text/javascript" src="js/mainpage.mainpage.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="./js/bootstrap.js"></script>
@@ -191,61 +200,6 @@
 			</div>
 		</div>
 </nav>
-	<!--시작-->
-	<section id="section1" style="right: 0px">
-		<div id="cont_inner">
-			<div class="sub_layout layout">
-				<article>
-					<header class="camp_top_info">
-						<div class="camp_info_box">
-							<div class="img_b">
-								<img src="./images/camping_0_0.png" />
-							</div>
-
-							<div class="cont_tb">
-								<table class="table">
-									<colgroup>
-										<col style="width: 30%;" />
-										<col style="width: 70%;" />
-									</colgroup>
-									<tbody>
-										<tr>
-											<th scope="col">이름</th>
-											<td>가평 달빛정원글랭핑 캠핑</td>
-										</tr>
-										<tr>
-											<th scope="col">주소</th>
-											<td>경기 가평군 설악면 유명산길 122-10</td>
-										</tr>
-										<tr>
-											<th scope="col">위도</th>
-											<td>37.59478196151374</td>
-										</tr>
-										<tr>
-											<th scope="col">경도</th>
-											<td>127.49029467262564</td>
-										</tr>
-										<tr>
-											<th scope="col">입실 시간</th>
-											<td>오후 3시 00분</td>
-										</tr>
-										<tr>
-											<th scope="col">퇴실 시간</th>
-											<td>오전 11시 00분</td>
-										</tr>
-										<tr>
-											<th scope="col">홈페이지</th>
-											<td><a href="http://moonlightgarden.pensionnara.co.kr/">홈페이지 바로가기</a>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
-					</header>
-				</article>
-			</div>
-			<!-- 끝 -->
-
 			<!--시작-->
 			<div id="contents">
 				<div class="camp_cont_w">
@@ -261,65 +215,53 @@
 							<li id="c_review"><a href="list2?campNumber=${campNumber}" class="camp_review">캠핑 여행후기</a></li>
 							<li id="c_notice"><a href="#" class="camp_notice">공지/이벤트</a></li>
 						</ul>
-
 						
-						<div class="camp_intro">
-							<ul>
-								<li class="col_03 img_box"><img src="./images/camping_0_0.png" class="imgFit"></li>
-								<li class="col_03 img_box"><img src="./images/camping_0_0.png" class="imgFit"></li>
-								<li class="col_03 img_box"><img src="./images/camping_0_0.png" class="imgFit"></li>
-							</ul>
-							<p class="camp_intro_txt">
-								<span> 1. 성인남성 4인이상 예약금지 (3인까지만 예약가능) <br /> 2. 팀이상 예약금지(한팀만 예약가능) <br /> ※ 매너 타임 <br /> 소음과 방음에 취약한 캠핑장 특성상 오후 11시부터 매너 타임을 하고 있습니다. <br />
-									※ 고캠핑에 등록된 정보는 현장상황과 다소 다를 수 있으니 반려동물 동반 여부, 부가 시설물, 추가차량 등 원활한 캠핑을 위해 꼭 필요한 사항은 해당 캠핑장에 미리 확인하시기 바랍니다.
-								</span> <span class="date_info">최종 정보 수정일 : 2021-11-17</span>
-							</p>
-
-							<h3 class="icon_h3 mt_50">가평 달빛정원글랭핑 캠핑</h3>
-							<div class="box_photo">
-								<div class="container">
-									<div class="row">
-										<div class="col-sm-4">
-											<div class="item">
-												<img src="./images/camping_0_0.png" class="img-thumbnail">
-											</div>
-										</div>
-
-										<div class="col-sm-4">
-											<div class="item">
-												<img src="./images/camping_0_0.png" class="img-thumbnail">
-											</div>
-										</div>
-
-										<div class="col-sm-4">
-											<div class="item">
-												<img src="./images/camping_0_0.png" class="img-thumbnail">
-											</div>
-										</div>
-
-										<div class="col-sm-4">
-											<div class="item">
-												<img src="./images/camping_0_0.png" class="img-thumbnail">
-											</div>
-										</div>
-
-										<div class="col-sm-4">
-											<div class="item">
-												<img src="./images/camping_0_0.png" class="img-thumbnail">
-											</div>
-										</div>
-
-										<div class="col-sm-4">
-											<div class="item">
-												<img src="./images/camping_0_0.png" class="img-thumbnail">
-											</div>
-										</div>
-									</div>
-								</div>
-								<div style="margin-top: 0px; margin-bottom: 0px;">※ 모든 컨텐츠의 저작권은 캠핑에 있습니다. 무단 사용 및 불법 재배포는 법적 조치를 받을 수 있습니다.</div>
-							</div>
-						</div>
-						
+						<!-- 1개의 글 -->	
+						<form action="update" method="post">
+							<table width="600" align="center" border="1" cellpadding="5" cellspacing="0">
+								<tr>
+									<td width="80" align="center">글번호</td>
+									<td width="320" align="center">이름</td>
+									<td width="120" align="center">작성일</td>
+								</tr>
+								<tr>
+									<td align="center">${vo.idx}</td>
+									<td align="center">
+										<c:set var="name" value="${fn:replace(vo.name, '<', '&lt;')}"/>
+										<c:set var="name" value="${fn:replace(name, '>', '&gt;')}"/>
+										${name}
+									</td>
+									<td align="center">
+										<jsp:useBean id="date" class="java.util.Date"/>
+										<c:if test="${date.year == vo.writeDate.year && date.month == vo.writeDate.month &&
+											date.date == vo.writeDate.date }">
+											<fmt:formatDate value="${vo.writeDate}" pattern="a h:mm"/>
+										</c:if>
+										<c:if test="${date.year != vo.writeDate.year || date.month != vo.writeDate.month ||
+											date.date != vo.writeDate.date }">
+											<fmt:formatDate value="${vo.writeDate}" pattern="yyyy.MM.dd(E)"/>
+										</c:if>
+									</td>
+								</tr>
+								<tr>
+									<td align="center">내용</td>
+									<td colspan="3">
+										<textarea rows="10" name="content" style="resize: none; width: 98%;">${vo.content}</textarea>
+									</td>
+								</tr>
+								<tr>
+									<td colspan="4" align="center">
+										<input type="hidden" name="idx" value="${vo.idx}"/>
+										<input type="hidden" name="currentPage" value="${currentPage}"/>
+										<input type="hidden" name="campNumber" value="${vo.campNumber}"/>
+										<input type="submit" value="수정하기"/>
+										<input type="button" value="삭제하기" onclick="location.href='delete?idx=${vo.idx}&currentPage=${currentPage}'"/>
+										<input type="button" value="돌아가기" onclick="location.href='list2?campNumber=${campNumber}&currentPage=${currentPage}'"/>
+									</td>
+								</tr>
+							</table>
+						</form>
+						<!-- 1개의 글 -->	
 						
 					</div>
 				</div>
@@ -355,6 +297,5 @@
 		</div>
 	</footer>
 
-<!-- <script src="https://kit.fontawesome.com/27afa53023.js" crossorigin="anonymous"></script> -->
 </body>
 </html>

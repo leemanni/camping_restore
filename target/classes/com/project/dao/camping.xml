@@ -29,6 +29,14 @@
 	<update id="down" parameterType="int">
 		update camping set down = down + 1 where idx = #{idx}
 	</update>
+	<!-- 글 수정 -->
+	<update id="update" parameterType="vo">
+		update camping set content = #{content} where idx = #{idx}
+	</update>
 	
+	<!-- 글 1건 얻어오기 -->
+	<select id="selectByIdx" parameterType="int" resultType="vo">
+		select * from camping where idx = #{idx}
+	</select>
 	
 </mapper>

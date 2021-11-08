@@ -19,6 +19,9 @@ public interface CampingDAO {
 	void down(int idx);
 
 	int loginCheck(HashMap<String, String> hmap);
+	
+	void update(CampingVO campingVO);
 
+	CampingVO selectByIdx(int idx);
 
 }

@@ -141,6 +141,44 @@ public class HomeController {
 		return "list";
 	}
 	
+	/**
+	 * @param request
+	 * @param model
+	 * @return
+	 * 댓글 페이지
+	 * 
+	 */
+	@RequestMapping("/list2")
+	public String list2(HttpServletRequest request, Model model) {
+		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("classpath:application_ctx.xml");
+		CampingDAO dao = sqlSession.getMapper(CampingDAO.class);
+		int pageSize = 10;
+		int currentPage = 1;
+		int campNumber = 0; // 캠핑장 구분 index
+		try {
+			campNumber = Integer.parseInt(request.getParameter("campNumber"));
+			currentPage = Integer.parseInt(request.getParameter("currentPage"));
+		} catch (Exception e) {
+		}
+		int totalCount =  dao.selectCount(campNumber);
+		CampingList campingList = ctx.getBean("list", CampingList.class);
+	
+		campingList.initMvcboardList(pageSize, totalCount, currentPage);
+		
+		HashMap<String, Integer> hmap = new HashMap<String, Integer>();
+		hmap.put("startNo", campingList.getStartNo());
+		hmap.put("endNo", campingList.getEndNo());
+		hmap.put("campNumber", campNumber);
+		
+		campingList.setList(dao.selectList(hmap));
+		System.out.println(campingList.getList());
+		model.addAttribute(campingList);
+		model.addAttribute("currentPage", currentPage);
+		model.addAttribute("campNumber", campNumber);
+		ctx.close();
+		return "list2";
+	}
+	
 	
 	
 	/**
@@ -203,6 +241,45 @@ public class HomeController {
 		return "redirect:list";
 	}
 	
+	
+	@RequestMapping("/update")
+	public String update(HttpServletRequest request, Model model, CampingVO campingVO) {
+		System.out.println("컨트롤러의 update() 메소드");
+		int currentPage = 1;
+		int campNumber = 0;
+		try {
+			campNumber = Integer.parseInt(request.getParameter("campNumber"));
+			currentPage = Integer.parseInt(request.getParameter("currentPage"));
+		} catch (Exception e) {
+		}
+		CampingDAO mapper = sqlSession.getMapper(CampingDAO.class);
+		mapper.update(campingVO);
+		
+//		글 수정 작업 후 돌아갈 페이지 번호를 model 객체에 저장한다.
+		model.addAttribute("currentPage", currentPage);
+		model.addAttribute("campNumber", campNumber);
+		
+		return "redirect:list2";
+	}
+	
+	@RequestMapping("/contentView")
+	public String contentView(HttpServletRequest request, Model model) {
+		System.out.println("컨트롤러의 contentView() 메소드");
+		
+		CampingDAO mapper = sqlSession.getMapper(CampingDAO.class);
+
+		int idx = Integer.parseInt(request.getParameter("idx"));
+
+		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("classpath:application_ctx.xml");
+		CampingVO campingVO = ctx.getBean("vo", CampingVO.class);
+		campingVO = mapper.selectByIdx(idx);
+
+		model.addAttribute("vo", campingVO);
+		model.addAttribute("currentPage", Integer.parseInt(request.getParameter("currentPage")));
+		model.addAttribute("enter", "\r\n");
+		
+		return "contentView";
+	}
 	
 	@RequestMapping("/mainlogin")
    public String mainlogin(HttpServletRequest request, Model model) {
