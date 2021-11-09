@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.project.dao.CampingDAO;
+import com.project.vo.CampDataVO;
 import com.project.vo.CampingList;
 import com.project.vo.CampingVO;
 
@@ -50,10 +51,8 @@ public class HomeController {
 	 */
 	@RequestMapping("/loginOK")
 	public String loginOK(HttpServletRequest request, Model model) {
-		
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
-		
 		
 		CampingDAO dao = sqlSession.getMapper(CampingDAO.class);
 		HashMap<String, String> hmap = new HashMap<String, String>();
@@ -67,7 +66,6 @@ public class HomeController {
 			HttpSession session = request.getSession();
 //			세션 변수 저장 => 세션이 저장됐다(= 관리자 로그인이 됐다) => h1 테그(list.jsp) 에서 true 라고 뜰거임
 			session.setAttribute("manager", "true");
-			
 		}else {
 			System.out.println("false");
 		}
@@ -97,7 +95,7 @@ public class HomeController {
 		dao.insert(campingVO);
 		System.out.println(campingVO.getCampNumber());
 		ctx.close();
-		return "redirect:list";
+		return "redirect:list2";
 	}
 	
 	
@@ -108,12 +106,14 @@ public class HomeController {
 	 * 선택한 캠핑장의 댓글을 불러와주는 메소드
 	 */
 	@RequestMapping("/list")
-	public String count(HttpServletRequest request, Model model) {
+	public String list(HttpServletRequest request, Model model) {
 		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("classpath:application_ctx.xml");
 		CampingDAO dao = sqlSession.getMapper(CampingDAO.class);
+		
+//		=================================================댓글
 		int pageSize = 10;
 		int currentPage = 1;
-		int campNumber = 0; // 캠핑장 구분 index
+		int campNumber = 1; // 캠핑장 구분 index
 		try {
 			campNumber = Integer.parseInt(request.getParameter("campNumber"));
 			currentPage = Integer.parseInt(request.getParameter("currentPage"));
@@ -137,6 +137,12 @@ public class HomeController {
 		model.addAttribute(campingList);
 		model.addAttribute("currentPage", currentPage);
 		model.addAttribute("campNumber", campNumber);
+		
+//		=================================================캠핑장 자료
+		CampDataVO campDataVO = dao.selectCamp(campNumber);
+		model.addAttribute("campDataVO", campDataVO);
+		model.addAttribute("enter", "\r\n");
+		
 		ctx.close();
 		return "list";
 	}
@@ -179,6 +185,53 @@ public class HomeController {
 		return "list2";
 	}
 	
+	/**
+	 * @param request
+	 * @param model
+	 * @return
+	 * 지도보기 누르면 지도를 보여주는 기능
+	 */
+	@RequestMapping("/list3")
+	public String list3(HttpServletRequest request, Model model) {
+		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("classpath:application_ctx.xml");
+		CampingDAO dao = sqlSession.getMapper(CampingDAO.class);
+		
+//		=================================================댓글
+		int pageSize = 10;
+		int currentPage = 1;
+		int campNumber = 1; // 캠핑장 구분 index
+		try {
+			campNumber = Integer.parseInt(request.getParameter("campNumber"));
+			currentPage = Integer.parseInt(request.getParameter("currentPage"));
+//			System.out.println("in");
+		} catch (Exception e) {
+		}
+//		System.out.println("!!!!!!! =>" + campNumber);
+		int totalCount =  dao.selectCount(campNumber);
+//		System.out.println(totalCount);
+		CampingList campingList = ctx.getBean("list", CampingList.class);
+		
+		campingList.initMvcboardList(pageSize, totalCount, currentPage);
+		
+		HashMap<String, Integer> hmap = new HashMap<String, Integer>();
+		hmap.put("startNo", campingList.getStartNo());
+		hmap.put("endNo", campingList.getEndNo());
+		hmap.put("campNumber", campNumber);
+		
+		campingList.setList(dao.selectList(hmap));
+		System.out.println(campingList.getList());
+		model.addAttribute(campingList);
+		model.addAttribute("currentPage", currentPage);
+		model.addAttribute("campNumber", campNumber);
+		
+//		=================================================캠핑장 자료
+		CampDataVO campDataVO = dao.selectCamp(campNumber);
+		model.addAttribute("campDataVO", campDataVO);
+		
+		ctx.close();
+		return "list3";
+	}
+	
 	
 	
 	/**
@@ -208,7 +261,7 @@ public class HomeController {
 		model.addAttribute("idx", idx);
 		model.addAttribute("campNumber", campNumber);
 		model.addAttribute("currentPage", currentPage);
-		return "redirect:list";
+		return "redirect:list2";
 	}
 	/**
 	 * @param request
@@ -238,7 +291,8 @@ public class HomeController {
 		model.addAttribute("idx", idx);
 		model.addAttribute("campNumber", campNumber);
 		model.addAttribute("currentPage", currentPage);
-		return "redirect:list";
+		
+		return "redirect:list2";
 	}
 	
 	
@@ -276,35 +330,30 @@ public class HomeController {
 
 		model.addAttribute("vo", campingVO);
 		model.addAttribute("currentPage", Integer.parseInt(request.getParameter("currentPage")));
-		model.addAttribute("enter", "\r\n");
 		
 		return "contentView";
 	}
 	
-	@RequestMapping("/mainlogin")
-   public String mainlogin(HttpServletRequest request, Model model) {
-      return "mainlogin";
-   }
    
-	
-	
-	
-   @RequestMapping("/instructor")
-   public String instructor(HttpServletRequest request, Model model) {
-      return "instructor";
-   }
-   
-   @RequestMapping("/register")
+   /**
+ * @param request
+ * @param model
+ * @return
+ * 관리자로 로그인 하면 관리자를 등록할 수 있는 기능
+ */
+@RequestMapping("/register")
    public String register(HttpServletRequest request, Model model) {
 	   return "register";
    }
    
-   @RequestMapping("/lecture")
-   public String lecture(HttpServletRequest request, Model model) {
-	   return "register";
-   }
    
-   @RequestMapping("/path")
+   /**
+ * @param request
+ * @param model
+ * @return
+ * 지도 보여주는 페이지로 이동
+ */
+@RequestMapping("/path")
    public String path(HttpServletRequest request, Model model) {
 	   return "path";
    }

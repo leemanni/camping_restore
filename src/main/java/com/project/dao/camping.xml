@@ -39,4 +39,10 @@
 		select * from camping where idx = #{idx}
 	</select>
 	
+	<!-- 캠핑장 정보 불러오기 -->
+	<select id="selectCamp"  parameterType="int" resultType="data">
+		select * from campData where idx = #{campNumber}
+	</select>
+	
+	
 </mapper>

@@ -1,53 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/mainpage/mainpage.css">
 <link rel="stylesheet" href="css/mainpage/topmenu.css">  <!-- 지역별 토글 지정돼 있음 자우면 안됨 -->
+<link rel="stylesheet" type="text/css" href="css/list/style.css" />
 <link rel="icon" href="images/favicon/favicon.ico" type="image/x-icon">
-
-<script type="text/javascript" src="js/mainpage.js"></script>
+<script type="text/javascript" src="js/mainpage.mainpage.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="./js/bootstrap.js"></script>
-<script type="text/javascript" src="./js/map.js"></script>
-<style type="text/css">
-	
-	/* 지도 안의 마커와 캠핑장별 위치 관련 css */
-	#map{
-		border : 2px solid teal;
-		margin-top: 50px;
-		margin-bottom: 50px;
-	}
-	#map div{
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		border-radius: 5%;
-		font-size: 10px;
-	}
-	/* 지도에 표시될 마커 위 말풍선 텍스트 box 역할 */
-	.mapinfo{
-		padding:5px;
-		padding-left:30px;
-		font-size:13px;
-	
-	}
-	/* 지도에 표시되는 캠핑장 글씨 관련 스타일 */
-	.mapinfo a{
-		color: black;
-		text-decoration: none;
-	}
-</style>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6c77ab0a5c207368771cf75c4d79f600"></script>
 
-<link rel="icon" href="./p1/favicon1.ico">
-<title>캠핑장 길찾기</title>
+
+
+
+
+
+<title>캠핑장</title>
 </head>
 <body>
-<!-- ================================================================================================================================== -->
-<!-- 내비게이션 바 -->
 <nav class="navbar navbar-default">
 	<div class="container-fluid">
 		<div class="navbar-header">
@@ -218,43 +194,151 @@
 			%> --%>
 			</div>
 		</div>
-	</nav>	
-<!-- 지도 표시 부분 -->
-<div id="map" style="width:70% ; height:700px; text-align: center; left:15%; right:15%;"></div>
+</nav>
+	<!--시작-->
+	<section id="section1" style="right: 0px">
+		<div id="cont_inner">
+			<div class="sub_layout layout">
+				<article>
+					<header class="camp_top_info">
+						<div class="camp_info_box">
+							<div class="img_b">
+								<img src="./images/camping_0_0.png" />
+							</div>
+
+							<div class="cont_tb">
+								<table class="table">
+									<colgroup>
+										<col style="width: 30%;" />
+										<col style="width: 70%;" />
+									</colgroup>
+									<tbody>
+										<tr>
+											<th scope="col">이름</th>
+											<!-- <td>가평 달빛정원글랭핑 캠핑</td> -->
+											<td>${campDataVO.name}</td>
+										</tr>
+										<tr>
+											<th scope="col">주소</th>
+											<td>${campDataVO.address}</td>
+										</tr>
+										<tr>
+											<th scope="col">위도</th>
+											<td>${campDataVO.latitude}</td>
+										</tr>
+										<tr>
+											<th scope="col">경도</th>
+											<td>${campDataVO.longitude}</td>
+										</tr>
+										<tr>
+											<th scope="col">입실 시간</th>
+											<td>${campDataVO.inTime}</td>
+										</tr>
+										<tr>
+											<th scope="col">퇴실 시간</th>
+											<td>${campDataVO.outTime}</td>
+										</tr>
+										<tr>
+											<th scope="col">홈페이지</th>
+											<td><a href="${campDataVO.url}">홈페이지 바로가기</a>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</header>
+				</article>
+			</div>
+			<!-- 끝 -->
+		
+			
+			<!--시작-->
+			<div id="contents">
+				<div class="camp_cont_w">
+					<div class="line_100">
+						<span class="skip"></span>
+					</div>
+					<div class="layout">
+						
+						<ul class="camp_tab05">
+							<li class="on"><a href="#" class="camp_intro">캠핑장 소개</a></li>
+							<li id="c_guide"><a href="#" class="camp_guide">이용안내</a></li>
+							<li id="c_map"><a href="#" class="camp_map">위치/주변정보</a></li>
+							<li id="c_review"><a href="list2?campNumber=${campNumber}" class="camp_review">캠핑 여행후기</a></li>
+							<li id="c_notice"><a href="#" class="camp_notice">공지/이벤트</a></li>
+						</ul>
 	
-<footer style="background-color: #000000; color: #ffffff">
-	<div class="container">
-	<br/>
-		<div class="row">
-			<div class="col-sm-2" style="text-align: center;">
-				<h5>개발자</h5>
-				<h5>전상욱</h5>
+						
+					</div>
+				</div>
+			</div>
+				<!-- 지도상\삽입 -->
+			<div id="contents">
+				<div id="map" style="width:70% ; height:700px; text-align: center; left:15%; right:15%;"></div>
+				<script>
+					window.onload = function() {
+						var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+								    mapOption = { 
+								        center: new kakao.maps.LatLng(36.80, 127.51), // 지도의 중심좌표
+								        level: 12 // 지도의 확대 레벨
+								    };
+								
+						var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+						var endadd = "";
+						// 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
+						var position = 
+						    {
+						        content: '<div class=\'mapinfo\'><a href="https://map.kakao.com/link/to/'+name+',35.661542818611686,126.50780945530366" style="color:blue" target="_blank">변산반도국립공원 <br>고사포야영장</a></div>' ,
+						        latlng: new kakao.maps.LatLng(35.661542818611686, 126.50780945530366)
+						    };
+						/* 아래와 같이도 할 수 있습니다 */
+						
+						    // 마커를 생성합니다
+						    var marker = new kakao.maps.Marker({
+						        map: map, // 마커를 표시할 지도
+						        position: position.latlng // 마커의 위치
+						    });
+						
+						    // 마커에 표시할 인포윈도우를 생성합니다 
+						    var infowindow = new kakao.maps.InfoWindow({
+						        content: position.content // 인포윈도우에 표시할 내용
+						    });
+						    infowindow.open(map, marker);
+					}
+			</script>
 			</div>
 			
-			<div class="col-sm-4">
-				<h5>E-mail</h5>
-				<h5>전상욱 : sangwook0217@gmail.com</h5>
-			</div>
-			
-			<div class="col-sm-4" style="text-align: center;">
-				<h5>입금 계좌</h5>
-				<h5>카카오 뱅크 3333-12-4618614</h5>
-			</div>
-			
-			<div class="col-sm-2" style="text-align: center;">
-				<h5>스우파 공식 SNS</h5>
-				<div class="list-group">
-					<a href="https://program.genie.co.kr/swf/main" class="list-group-item">공식 홈페이지</a>
-					<a href="https://www.instagram.com/mnet_dance/" class="list-group-item">공식 인스타그램</a>
-					<a href="https://program.naver.com/p/18923570" class="list-group-item">공식 네이버TV</a>
+		</div>
+	</section>
+	<!-- 끝 -->
+	
+	<footer style="background-color: #000000; color: #ffffff">
+		<div class="container">
+			<br/>
+			<div class="row">
+				<div class="col-sm-2" style="text-align: center;">
+					<h5>개발자: 전상욱</h5>
+				</div>
+				
+				<div class="col-sm-4">
+					<h5>E-mail: sangwook0217@gmail.com</h5>
+				</div>
+				
+				<div class="col-sm-4" style="text-align: center;">
+					<h5>입금 계좌: 카카오 뱅크 3333-12-4618614</h5>
+				</div>
+				<div class="col-sm-2" style="text-align: center;">
+					<h5>스우파 공식 SNS</h5>
+					<div class="list-group">
+						<a href="https://program.genie.co.kr/swf/main" class="list-group-item">공식 홈페이지</a>
+						<a href="https://www.instagram.com/mnet_dance/" class="list-group-item">공식 인스타그램</a>
+						<a href="https://program.naver.com/p/18923570" class="list-group-item">공식 네이버TV</a>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-</footer>
-<!-- <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6c77ab0a5c207368771cf75c4d79f600"></script>
+	</footer>
+
+<script src="https://kit.fontawesome.com/27afa53023.js" crossorigin="anonymous"></script>
 </body>
 </html>
-

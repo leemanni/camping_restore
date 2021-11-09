@@ -155,11 +155,22 @@
 			<div class="nav navbar-nav navbar-right">
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-						접속하기<span class="caret"></span>
+							<c:if test="${manager==null}">
+								로그인
+							</c:if>
+							<c:if test="${manager!=null}">
+								관리자등록
+							</c:if>
+						<span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
-						<li><a href="loginMain">로그인</a></li>
-						<li><a href="register">회원가입</a></li>
+							<c:if test="${manager==null}">
+								<li><a href="loginMain">로그인</a></li>
+							</c:if>
+							<c:if test="${manager!=null}">
+								<li><a href="register">관리자등록</a></li>
+								<li><a href="logout">로그아웃</a></li>
+							</c:if>
 					</ul>
 					
 				</li>

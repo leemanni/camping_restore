@@ -1,94 +1,295 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!-- 대입문, 제어문 -->
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<!-- 서식 -->
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<!-- 함수 -->
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>로그인 페이지</title>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-<link rel="stylesheet" href="css/mainpage/mainpage.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>캠핑 리뷰 사이트(이름 미정)</title>
+<link rel="stylesheet" href="./css/bootstrap.css">
 <link rel="stylesheet" href="css/mainpage/login.css">
+<link rel="stylesheet" href="css/mainpage/topmenu.css">
+<link rel="stylesheet" href="js/mainpage.mainpage.js">
 
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="./js/bootstrap.js"></script>
+
+<script type="text/javascript">
+
+
+</script>
 </head>
 <body>
-	<section class="login-block">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-4 login-sec">
-					<h2 class="text-center">(사이트 명)</h2>
-					<form class="login-form" action="loginOK">
-						<div class="form-group">
-							<label for="exampleInputEmail1" class="text-uppercase">아이디</label> <input name="id" type="text" class="form-control" placeholder="">
-						</div>
-						<div class="form-group">
-							<label for="exampleInputPassword1" class="text-uppercase">비밀번호</label> <input name="pw" type="password" class="form-control" placeholder="">
-						</div>
-						<div class="form-check">
-							<label class="form-check-label"> <input type="checkbox" class="form-check-input"> <small>로그인 정보 기억하기</small>
-							</label>
-							<button type="submit" class="btn btn-login float-right">로그인</button>
-						</div>
 
-					</form>
-					<div class="copy-text">
-						<a href="./register">회원가입</a>
-					</div>
-				</div>
-				<div class="col-md-8 banner-sec">
-					<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-						<ol class="carousel-indicators">
-							<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-							<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-							<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-						</ol>
-						<div class="carousel-inner" role="listbox">
-							<div class="carousel-item active">
-								<img class="d-block img-fluid" src="./images/강원도.jpg" alt="First slide">
-								<div class="carousel-caption d-none d-md-block">
-									<div class="banner-text">
-										<h2>강원도</h2>
-										<p>강원도 ***입니다.</p>
-									</div>
-								</div>
-							</div>
-							<div class="carousel-item">
-								<img class="d-block img-fluid" src="./images/강원도2.jpg" alt="First slide">
-								<div class="carousel-caption d-none d-md-block">
-									<div class="banner-text">
-										<h2>강원도</h2>
-										<p>강원도 ***입니다.</p>
-									</div>
-								</div>
-							</div>
-							<div class="carousel-item">
-								<img class="d-block img-fluid" src="./images/강원도2.jpg" alt="First slide">
-								<div class="carousel-caption d-none d-md-block">
-									<div class="banner-text">
-										<h2>강원도</h2>
-										<p>강원도 ***입니다.</p>
-									</div>
-								</div>
-							</div>
-						</div>
+<!-- ================================================================================================================================== -->
+<!-- 내비게이션 바 -->
+<%-- <% 
+		String userID = null;
+		if(session.getAttribute("userID") != null) {
+			userID = (String) session.getAttribute("userID");
+		}
+	%> --%>
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" 
+				aria-expanded="false">
+				<span class="sr-only"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="mainpage">캠핑 리뷰 사이트(이름 미정)</a>
+		</div>
+		
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" 
+						data-toggle="dropdown" 
+						role="button" 
+						aria-haspopup="true" 
+						aria-expanded="false">홈페이지 소개<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu">
+						<li><a href="#">홈페이지 소개</a></li>
+					</ul>
+				</li>
+				
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" 
+						data-toggle="dropdown" 
+						role="button" 
+						aria-haspopup="true" 
+						aria-expanded="false">
+						캠핑장 소개<span class="caret"></span>
+					</a>
+		    		<ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">		 
+		              <li class="dropdown-submenu">
+		                <a tabindex="-1" href="#">서울</a>
+		                <ul class="dropdown-menu">
+		                  <li><a tabindex="-1" href="#">서울북한산럭셔리카라반&수영장글램핑</a></li>
+		                </ul>	                 
+		              </li>
+		              
+		              <li class="dropdown-submenu">
+		              	<a tabindex="-1" href="#">경기</a>	
+		              	<ul class="dropdown-menu">
+		                  <li><a tabindex="-1" href="#">가평 달빛정원글랭핑&캠핑</a></li>
+		                  <li><a tabindex="-1" href="#">글램비 글램핑</a></li>
+		                  <li><a tabindex="-1" href="#">동화힐링캠프글램핑</a></li>
+		                  <li><a tabindex="-1" href="#">소풍 캠핑장</a></li>
+		                  <li><a tabindex="-1" href="#">왕산 오토캠핑장</a></li>
+		                  <li><a tabindex="-1" href="#">포천 프로미스 캠프</a></li>
+		                  <li><a tabindex="-1" href="#">하늘 숲 글램핑파크</a></li>
+		                  <li><a tabindex="-1" href="#">호수산장관광농원</a></li>
+		                </ul>	
+		              </li>
+		              
+		              <li class="dropdown-submenu">
+		              	<a tabindex="-1" href="#">강원</a>	
+		              	<ul class="dropdown-menu">
+		                  <li><a tabindex="-1" href="#">동강 전망휴양림 오토캠핑장</a></li>
+		                  <li><a tabindex="-1" href="#">별마로 빌리지</a></li>
+		                  <li><a tabindex="-1" href="#">소금강 오토캠프장</a></li>
+		                </ul>	
+		              </li>
+		              
+		              <li><a tabindex="-1" href="#">충북</a></li>	
 
-					</div>
+		              <li class="dropdown-submenu">
+		              	<a tabindex="-1" href="#">충남</a>	
+		              	<ul class="dropdown-menu">
+		                  <li><a tabindex="-1" href="#">솔바람 캠핑장</a></li>
+		                  <li><a tabindex="-1" href="#">태안 캠핑코리아</a></li>
+		                </ul>	
+		              </li>
+		              
+		              <li class="dropdown-submenu">
+		              	<a tabindex="-1" href="#">전북</a>	
+		              	<ul class="dropdown-menu">
+		                  <li><a tabindex="-1" href="#">변산반도국립공원 고사포 야영장</a></li>
+		                </ul>	
+		              </li>	
+		              
+		              <li><a tabindex="-1" href="#">전남</a></li>		              		              		              
+
+		              <li class="dropdown-submenu">
+		              	<a tabindex="-1" href="#">경북</a>	
+		              	<ul class="dropdown-menu">
+		                  <li><a tabindex="-1" href="#">스카이글램핑</a></li>
+		                </ul>	
+		              </li>		
+		              
+		              <li class="dropdown-submenu">
+		              	<a tabindex="-1" href="#">경남</a>	
+		              	<ul class="dropdown-menu">
+		                  <li><a tabindex="-1" href="#">사천 비토 솔섬 오토캠핑장</a></li>
+		                </ul>	
+		              </li>	
+		              
+		              <li><a tabindex="-1" href="#">제주</a></li>			              	              
+            		</ul>
+				</li>
+				
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" 
+						data-toggle="dropdown" 
+						role="button" 
+						aria-haspopup="true" 
+						aria-expanded="false">
+						캠핑장 리뷰 게시판<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu">
+						<li><a href="list">캠핑장 리뷰 게시판</a></li>
+					</ul>
+				</li>
+				
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" 
+						data-toggle="dropdown" 
+						role="button" 
+						aria-haspopup="true" 
+						aria-expanded="false">
+						캠핑장 길찾기<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu">
+						<li><a href="path">캠핑장 길찾기</a></li>
+					</ul>
+				</li>
+			</ul>
+
+		<%-- 	<%
+			 // 접속하기는 로그인이 되어있지 않은 경우만 나오게한다
+				if(userID == null) {
+			%> --%>
+		
+			<div class="nav navbar-nav navbar-right">
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+						접속하기<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu">
+						<li><a href="loginMain">로그인</a></li>
+						<li><a href="register">회원가입</a></li>
+					</ul>
+					
+				</li>
+			</div>
+			<%-- 
+				요부분은 나중에 관리자 모드할 때 써먹을 수 있을 거 같아서 냅둔 - 백엔트 : 이원희
+			
+			<%
+			 // 로그인이 되어있는 사람만 볼수 있는 화면
+				} else {
+			%>
+			<div class="nav navbar-nav navbar-right">
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+						회원관리<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu">
+						<li><a href="logoutAction">로그아웃</a></li>
+					</ul>
+					
+				</li>
+			</div>
+			<%
+				}
+			%> --%>
+			</div>
+		</div>
+</nav>
+<!-- ================================================================================================================================== -->
+<!-- 시작 -->
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">	    
+	<div class="col-md-10 col-md-offset-1 main" >
+		<div class="col-md-6 left-side" >
+			<div class="slider">
+   				<input type="radio" name="slide" id="slide1" checked>
+   				<input type="radio" name="slide" id="slide2">
+   				<input type="radio" name="slide" id="slide3">
+   				<input type="radio" name="slide" id="slide4">
+				    <ul id="imgholder" class="imgs">
+        				<li><img src="./images/강원도.jpg" width="450" height="510"></li>
+        				<li><img src="./images/강원도.jpg" width="450" height="510"></li>
+        				<li><img src="./images/강원도.jpg" width="450" height="510"></li>
+        				<li><img src="./images/강원도.jpg" width="450" height="510"></li>
+    				</ul>
+    					<div class="bullets">
+        					<label for="slide1">&nbsp;</label>
+        					<label for="slide2">&nbsp;</label>
+        					<label for="slide3">&nbsp;</label>
+        					<label for="slide4">&nbsp;</label>
+    					</div>
+			</div>
+<br>
+
+
+		</div><!--col-sm-6-->
+		
+			<div class="col-md-6 right-side">
+				<h3>로그인</h3>
+		
+			<!--Form with header-->
+			<form action="loginOK">
+				<div class="form">
+			        <div class="form-group">
+					    <label for="form2">아이디</label>
+			            <input type="text" id="form2" class="form-control input-lg" name="id">
+			            
+			        </div>
+			        
+			        <div class="form-group">
+					    <label for="form4">비밀번호</label>
+			            <input type="password" id="form4" class="form-control input-lg" name="pw">
+			        </div>
+
+			        <div class="text-xs-center">
+            			<button class="btn btn-deep-purple" type="submit">로그인</button>
+        			</div>
+				</div>	
+			</form>
+<!--/Form with header-->
+			</div><!--col-sm-6-->
+	</div><!--col-sm-8-->
+</div><!--container-->
+<!-- ================================================================================================================================== -->
+<br/>
+
+<footer style="background-color: #000000; color: #ffffff">
+	<div class="container">
+		<br/>
+		<div class="row">
+			<div class="col-sm-2" style="text-align: center;">
+				<h5>개발자: 전상욱</h5>
+			</div>
+			
+			<div class="col-sm-4">
+				<h5>E-mail: sangwook0217@gmail.com</h5>
+			</div>
+			
+			<div class="col-sm-4" style="text-align: center;">
+				<h5>입금 계좌: 카카오 뱅크 3333-12-4618614</h5>
+			</div>
+			
+			<div class="col-sm-2" style="text-align: center;">
+				<h5>스우파 공식 SNS</h5>
+				<div class="list-group">
+					<a href="https://program.genie.co.kr/swf/main" class="list-group-item">공식 홈페이지</a>
+					<a href="https://www.instagram.com/mnet_dance/" class="list-group-item">공식 인스타그램</a>
+					<a href="https://program.naver.com/p/18923570" class="list-group-item">공식 네이버TV</a>
 				</div>
 			</div>
 		</div>
-	</section>
+	</div>
+</footer>
+<!-- ================================================================================================================================== -->
 
 </body>
 </html>
+
+
+
+

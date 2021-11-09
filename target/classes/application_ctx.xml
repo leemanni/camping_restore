@@ -4,6 +4,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<bean class="com.project.vo.CampingVO" id="vo"/>
+	<bean class="com.project.vo.CampDataVO" id="campDataVO"/>
 	<bean class="com.project.vo.CampingList" id="list"/>
 	
 </beans>

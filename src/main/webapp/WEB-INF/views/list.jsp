@@ -13,8 +13,14 @@
 <link rel="stylesheet" href="css/mainpage/mainpage.css">
 <link rel="stylesheet" href="css/mainpage/topmenu.css">  <!-- 지역별 토글 지정돼 있음 자우면 안됨 -->
 <link rel="stylesheet" type="text/css" href="css/list/style.css" />
+<style type="text/css">
 
-<script type="text/javascript" src="js/mainpage.mainpage.js"></script>
+.dev_name{
+	margin-bottom: 4px;
+}
+
+</style>
+<!-- <script type="text/javascript" src="js/mainpage.js"></script> -->
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="./js/bootstrap.js"></script>
 <title>캠핑장</title>
@@ -149,45 +155,27 @@
 					</ul>
 				</li>
 			</ul>
-
-		<%-- 	<%
-			 // 접속하기는 로그인이 되어있지 않은 경우만 나오게한다
-				if(userID == null) {
-			%> --%>
-		
-			<div class="nav navbar-nav navbar-right">
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-						접속하기<span class="caret"></span>
-					</a>
-					<ul class="dropdown-menu">
-						<li><a href="loginMain">로그인</a></li>
-						<li><a href="register">회원가입</a></li>
-					</ul>
-					
-				</li>
-			</div>
-			<%-- 
-				요부분은 나중에 관리자 모드할 때 써먹을 수 있을 거 같아서 냅둔 - 백엔트 : 이원희
-			
-			<%
-			 // 로그인이 되어있는 사람만 볼수 있는 화면
-				} else {
-			%>
-			<div class="nav navbar-nav navbar-right">
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-						회원관리<span class="caret"></span>
-					</a>
-					<ul class="dropdown-menu">
-						<li><a href="logoutAction">로그아웃</a></li>
-					</ul>
-					
-				</li>
-			</div>
-			<%
-				}
-			%> --%>
+				<div class="nav navbar-nav navbar-right">
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+							<c:if test="${manager==null}">
+								로그인<span class="caret"></span>
+							</c:if>
+							<c:if test="${manager!=null}">
+								관리자등록<span class="caret"></span>
+							</c:if>
+						</a>
+						<ul class="dropdown-menu">
+							<c:if test="${manager==null}">
+								<li><a href="loginMain">로그인</a></li>
+							</c:if>
+							<c:if test="${manager!=null}">
+								<li><a href="register">관리자등록</a></li>
+								<li><a href="logout">로그아웃</a></li>
+							</c:if>
+						</ul>
+					</li>
+				</div>
 			</div>
 		</div>
 </nav>
@@ -211,31 +199,32 @@
 									<tbody>
 										<tr>
 											<th scope="col">이름</th>
-											<td>가평 달빛정원글랭핑 캠핑</td>
+											<!-- <td>가평 달빛정원글랭핑 캠핑</td> -->
+											<td>${campDataVO.name}</td>
 										</tr>
 										<tr>
 											<th scope="col">주소</th>
-											<td>경기 가평군 설악면 유명산길 122-10</td>
+											<td>${campDataVO.address}</td>
 										</tr>
 										<tr>
 											<th scope="col">위도</th>
-											<td>37.59478196151374</td>
+											<td>${campDataVO.latitude}</td>
 										</tr>
 										<tr>
 											<th scope="col">경도</th>
-											<td>127.49029467262564</td>
+											<td>${campDataVO.longitude}</td>
 										</tr>
 										<tr>
 											<th scope="col">입실 시간</th>
-											<td>오후 3시 00분</td>
+											<td>${campDataVO.inTime}</td>
 										</tr>
 										<tr>
 											<th scope="col">퇴실 시간</th>
-											<td>오전 11시 00분</td>
+											<td>${campDataVO.outTime}</td>
 										</tr>
 										<tr>
 											<th scope="col">홈페이지</th>
-											<td><a href="http://moonlightgarden.pensionnara.co.kr/">홈페이지 바로가기</a>
+											<td><a href="${campDataVO.url}">홈페이지 바로가기</a>
 										</tr>
 									</tbody>
 								</table>
@@ -256,7 +245,7 @@
 						
 						<ul class="camp_tab05">
 							<li class="on"><a href="#" class="camp_intro">캠핑장 소개</a></li>
-							<li id="c_guide"><a href="#" class="camp_guide">이용안내</a></li>
+							<li id="c_guide"><a href="${campDataVO.url}" class="camp_guide">예약안내</a></li>
 							<li id="c_map"><a href="#" class="camp_map">위치/주변정보</a></li>
 							<li id="c_review"><a href="list2?campNumber=${campNumber}" class="camp_review">캠핑 여행후기</a></li>
 							<li id="c_notice"><a href="#" class="camp_notice">공지/이벤트</a></li>
@@ -270,16 +259,23 @@
 								<li class="col_03 img_box"><img src="./images/camping_0_0.png" class="imgFit"></li>
 							</ul>
 							<p class="camp_intro_txt">
-								<span> 1. 성인남성 4인이상 예약금지 (3인까지만 예약가능) <br /> 2. 팀이상 예약금지(한팀만 예약가능) <br /> ※ 매너 타임 <br /> 소음과 방음에 취약한 캠핑장 특성상 오후 11시부터 매너 타임을 하고 있습니다. <br />
+								<span>
+									${campDataVO.etc}<br/>
 									※ 고캠핑에 등록된 정보는 현장상황과 다소 다를 수 있으니 반려동물 동반 여부, 부가 시설물, 추가차량 등 원활한 캠핑을 위해 꼭 필요한 사항은 해당 캠핑장에 미리 확인하시기 바랍니다.
 								</span> <span class="date_info">최종 정보 수정일 : 2021-11-17</span>
 							</p>
-
-							<h3 class="icon_h3 mt_50">가평 달빛정원글랭핑 캠핑</h3>
+							<h3 class="icon_h3 mt_50">${campDataVO.name}</h3>
 							<div class="box_photo">
 								<div class="container">
 									<div class="row">
+										<c:forEach begin="0" end="2" step="1" var="i">
 										<div class="col-sm-4">
+											<div class="item">
+												<img src="./images/camping_${i}_${campNumber}.jpg" class="img-thumbnail">
+											</div>
+										</div>
+
+										<!-- <div class="col-sm-4">
 											<div class="item">
 												<img src="./images/camping_0_0.png" class="img-thumbnail">
 											</div>
@@ -307,20 +303,13 @@
 											<div class="item">
 												<img src="./images/camping_0_0.png" class="img-thumbnail">
 											</div>
-										</div>
-
-										<div class="col-sm-4">
-											<div class="item">
-												<img src="./images/camping_0_0.png" class="img-thumbnail">
-											</div>
-										</div>
+										</div> -->
+										</c:forEach>
 									</div>
 								</div>
 								<div style="margin-top: 0px; margin-bottom: 0px;">※ 모든 컨텐츠의 저작권은 캠핑에 있습니다. 무단 사용 및 불법 재배포는 법적 조치를 받을 수 있습니다.</div>
 							</div>
 						</div>
-						
-						
 					</div>
 				</div>
 			</div>
@@ -333,18 +322,24 @@
 			<br/>
 			<div class="row">
 				<div class="col-sm-2" style="text-align: center;">
-					<h5>개발자: 전상욱</h5>
+					<h5 class="dev_name">개발자: 김재호</h5>
+					<h5 class="dev_name">개발자: 김호연</h5>
+					<h5 class="dev_name">개발자: 신영진</h5>
+					<h5 class="dev_name">개발자: 이원희</h5>
+					<h5 class="dev_name">개발자: 전상욱</h5>
 				</div>
 				
 				<div class="col-sm-4">
-					<h5>E-mail: sangwook0217@gmail.com</h5>
+					<h5 class="dev_name">개발자 문의처</h5>
+					<h5 class="dev_name">E-mail: sangwook0217@gmail.com</h5>
+					<h5 class="dev_name">E-mail: cjffydahs@naver.com</h5>
 				</div>
 				
 				<div class="col-sm-4" style="text-align: center;">
-					<h5>입금 계좌: 카카오 뱅크 3333-12-4618614</h5>
+					<h5 class="dev_name">입금 계좌: 카카오 뱅크 3333-12-4618614</h5>
 				</div>
 				<div class="col-sm-2" style="text-align: center;">
-					<h5>스우파 공식 SNS</h5>
+					<h5>개발자 SNS</h5>
 					<div class="list-group">
 						<a href="https://program.genie.co.kr/swf/main" class="list-group-item">공식 홈페이지</a>
 						<a href="https://www.instagram.com/mnet_dance/" class="list-group-item">공식 인스타그램</a>
@@ -355,6 +350,6 @@
 		</div>
 	</footer>
 
-<!-- <script src="https://kit.fontawesome.com/27afa53023.js" crossorigin="anonymous"></script> -->
+<script src="https://kit.fontawesome.com/27afa53023.js" crossorigin="anonymous"></script>
 </body>
 </html>
