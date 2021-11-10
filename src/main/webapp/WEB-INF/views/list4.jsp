@@ -14,6 +14,13 @@
 <script type="text/javascript" src="js/mainpage.mainpage.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="./js/bootstrap.js"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6c77ab0a5c207368771cf75c4d79f600"></script>
+
+
+
+
+
+
 <title>캠핑장</title>
 </head>
 <body>
@@ -171,31 +178,32 @@
 									<tbody>
 										<tr>
 											<th scope="col">이름</th>
-											<td>가평 달빛정원글랭핑 캠핑</td>
+											<!-- <td>가평 달빛정원글랭핑 캠핑</td> -->
+											<td>${campDataVO.name}</td>
 										</tr>
 										<tr>
 											<th scope="col">주소</th>
-											<td>경기 가평군 설악면 유명산길 122-10</td>
+											<td>${campDataVO.address}</td>
 										</tr>
 										<tr>
 											<th scope="col">위도</th>
-											<td>37.59478196151374</td>
+											<td>${campDataVO.latitude}</td>
 										</tr>
 										<tr>
 											<th scope="col">경도</th>
-											<td>127.49029467262564</td>
+											<td>${campDataVO.longitude}</td>
 										</tr>
 										<tr>
 											<th scope="col">입실 시간</th>
-											<td>오후 3시 00분</td>
+											<td>${campDataVO.inTime}</td>
 										</tr>
 										<tr>
 											<th scope="col">퇴실 시간</th>
-											<td>오전 11시 00분</td>
+											<td>${campDataVO.outTime}</td>
 										</tr>
 										<tr>
 											<th scope="col">홈페이지</th>
-											<td><a href="http://moonlightgarden.pensionnara.co.kr/">홈페이지 바로가기</a>
+											<td><a href="${campDataVO.url}">홈페이지 바로가기</a>
 										</tr>
 									</tbody>
 								</table>
@@ -205,7 +213,8 @@
 				</article>
 			</div>
 			<!-- 끝 -->
-
+		
+			
 			<!--시작-->
 			<div id="contents">
 				<div class="camp_cont_w">
@@ -217,178 +226,25 @@
 						<ul class="camp_tab05">
 							<li class="on"><a href="#" class="camp_intro">캠핑장 소개</a></li>
 							<li id="c_guide"><a href="#" class="camp_guide">이용안내</a></li>
-							<li id="c_map"><a href="#" class="camp_map">위치/주변정보</a></li>
+							<li id="c_map"><a href="list3?campNumber=${campNumber}" class="camp_map">위치/주변정보</a></li>
 							<li id="c_review"><a href="list2?campNumber=${campNumber}" class="camp_review">캠핑 여행후기</a></li>
 							<li id="c_notice"><a href="#" class="camp_notice">공지/이벤트</a></li>
 						</ul>
-
-				<c:set var="list" value="${campingList.list}"/>
-					<table align="center" width="1000" cellspacing="0">
-						<tr>
-							<td width="70" align="center">번호</td>
-							<td width="640" align="center">내용</td>
-							<td width="100" align="center">이름</td>
-							<td width="120" align="center">작성일</td>
-							<td width="70" align="center">좋아요</td>
-							<td width="70" align="center">싫어요</td>
-							<td width="70" align="center">수정</td>
-							<c:if test="${manager != null }">
-								<td width="70" align="center">삭제</td>
-							</c:if>
-						</tr>
-						<!-- 글이 1건도 없을 때 -->
-						<c:if test="${list.size() == 0 }">
-						<tr>
-							<td>
-								<h1>글이 없습니다.</h1>
-							</td>
-						</tr>
-						</c:if>
-						<!-- 글이 있을 때 -->
-						<c:if test="${list.size() != 0 }">
-							<c:forEach var="vo" items="${list}">
-							<tr>
-								<td class="table-idx" align="center" >${vo.idx}</td>
-								<td class="table-content">
-									<c:set var="content" value="${fn:replace(vo.content, '<', '&lt')} "/>
-					 				<c:set var="content" value="${fn:replace(content, '>', '&gt')} "/>
-					 					<c:if test="${vo.down < 11 }">
-											${content}
-					 					</c:if>
-					 					<c:if test="${vo.down >= 11 }">
-											<span style="color: tomato;">삭제된 게시글 입니다.</span>
-					 					</c:if>
-										<c:if test="${vo.up >= 10 }">
-							 				<i class="far fa-thumbs-up"></i>
-							 			</c:if>
-								</td>
-								<td align="center">
-									<c:set var="name" value="${fn:replace(vo.name, '<', '&lt')} "/>
-					 				<c:set var="name" value="${fn:replace(name, '>', '&gt')} "/>
-									${vo.name }
-								</td>
-								<td align="center">
-									<c:if test="${date.year == vo.writeDate.year && date.month == vo.writeDate.month && date.date == vo.writeDate.date }">
-						 				<fmt:formatDate value="${vo.writeDate}" pattern="a h:mm"/>
-						 			</c:if>
-						 			<c:if test="${date.year != vo.writeDate.year || date.month != vo.writeDate.month || date.date != vo.writeDate.date }">
-						 				<fmt:formatDate value="${vo.writeDate}" pattern="yyyy.MM.dd(E)"/>
-					 				</c:if>
-								</td>
-								<td align="center">
-				 					<input type="button" value="${vo.up}" onclick="location.href='up?campNumber=${campNumber}&idx=${vo.idx}&currentPage=${campingList.currentPage}'">
-					 			</td>
-					 			<td align="center">
-				 					<input type="button" value="${vo.down}" onclick="location.href='down?campNumber=${campNumber}&idx=${vo.idx}&currentPage=${campingList.currentPage}'">
-					 			</td>
-					 			<td align="center">
-				 					<input type="button" value="수정" onclick="location.href='contentView?campNumber=${campNumber}&idx=${vo.idx}&currentPage=${campingList.currentPage}'">
-					 			</td>
-					 			<c:if test="${manager != null }">
-						 			<td align="center">
-					 					<input type="button" value="삭제" onclick="location.href='delete?campNumber=${campNumber}&idx=${vo.idx}&currentPage=${campingList.currentPage}'">
-						 			</td>
-					 			</c:if>
-							</tr>
-							</c:forEach>
-						</c:if>
-						 <!-- 페이지 이동버튼 -->
-						 <tr>
-							<td class="table-lastdata" align="center" colspan="5">
-							<!-- 처음으로 -->
-								<c:if test="${campingList.currentPage > 1}">
-									<a onclick="location.href='?campNumber=${campNumber}&currentPage=1'" >
-										<i class="fas fa-backward"></i>
-									</a>
-								</c:if>
-								
-								<c:if test="${campingList.currentPage <= 1}">
-									<a class=btn-none >
-										<i class="fas fa-backward"></i>
-									</a>
-									<!-- <button class="button button2" type="button" title="이미 첫 페이지입니다." disabled="disabled">처음</button> -->
-								</c:if>
-							<!-- 10페이지 앞으로 -->
-								<c:if test="${campingList.startPage > 1}">
-									<a onclick="location.href='?campNumber=${campNumber}&currentPage=${campingList.startPage - 1}'" >
-										<i class="fas fa-chevron-left"></i>
-									</a>
-								</c:if>
-								<c:if test="${campingList.startPage <= 1}">
-									<a class=btn-none>
-										<i class="fas fa-chevron-left"></i>
-									</a>
-								</c:if>
-								<c:forEach var="i" begin="${campingList.startPage}" end="${campingList.endPage}" step="1">
-									<c:if test="${campingList.currentPage == i}">
-										<a class="btn-none">
-											${i}
-										</a>
-									</c:if>
-									<c:if test="${campingList.currentPage != i}">
-										<a class="btn-number" onclick="location.href='?campNumber=${campNumber}&currentPage=${i}'">
-											${i}
-										</a>
-									</c:if>
-								</c:forEach>
-							<!-- 10페이지 뒤로 -->
-								<c:if test="${campingList.currentPage < campingList.totalPage}">
-									<a onclick="location.href='?campNumber=${campNumber}&currentPage=${campingList.endPage +1}'" >
-										<i class="fas fa-chevron-right"></i>
-									</a>
-								</c:if>
-								<c:if test="${campingList.currentPage >= campingList.totalPage}">
-									<a class="btn-none" >
-										<i class="fas fa-chevron-right"></i>
-									</a>
-								</c:if>
-								
-							<!-- 맨뒤로 -->
-								<c:if test="${campingList.currentPage < campingList.totalPage}">
-									<a onclick="location.href='?campNumber=${campNumber}&currentPage=${campingList.totalPage}'">
-										<i class="fas fa-forward" ></i>
-									</a>
-								</c:if>
-								<c:if test="${campingList.currentPage >= campingList.totalPage}">
-									<a class=btn-none onclick="location.href='?campNumber=${campNumber}&currentPage=${campingList.totalPage}'">
-										<i class="fas fa-forward" ></i>
-									</a>
-								</c:if>
-							</td>
-						</tr>
-					</table>	
 	
-					<!-- 글쓰기 시작-->
-					<form action="insert" method="post" style="text-align: center;">
-						<table align="center">
-						  <tr>
-							<th colspan="5" style="text-align: center;">게시판에 글쓰기</th>
-						  </tr>
-						  <tr>
-							<td>이름</td>
-							<td align="left"><input type="text" id="name" name="name"/></td>
-							<td rowspan='2'>내용</td>
-							<td align="left" rowspan='2'><textarea rows="3" cols="65" id="content" name="content" style="resize: none;"></textarea></td>
-							<td rowspan='2' align="center">
-								<input type="submit" value="글남기기"/><br>
-								<input type="reset" value="다시쓰기"/>
-							</tr>
-						  <tr>
-							<td>비밀번호</td>
-							<td align="left"><input type="password" id="pw" name="pw"/></td>
-						  </tr>
-						</table>
-						<input type="hidden" id="campNumber" name="campNumber" value="${campNumber}">
-					</form>
-					<!-- 글쓰기 끝-->
-						
 						
 					</div>
 				</div>
 			</div>
+			<div id="container">
+				<div class="row">
+					<div class="col-sm-12">
+						<img alt="이용수칙" src="images/event.jpg" style="width: 50%; margin-left: 25%;">
+					</div>
+				</div>
+			</div>
+			
 		</div>
 	</section>
-	<!-- 끝 -->
 	
 	<footer style="background-color: #000000; color: #ffffff">
 		<div class="container">

@@ -6,6 +6,7 @@
 	<typeAliases>
 		<typeAlias type="com.project.vo.CampingVO" alias="vo"/>
 		<typeAlias type="com.project.vo.CampDataVO" alias="data"/>
+		<typeAlias type="com.project.vo.CampingManagerVO" alias="campingManagerVO"/>
 	</typeAliases>
 </configuration>
 	

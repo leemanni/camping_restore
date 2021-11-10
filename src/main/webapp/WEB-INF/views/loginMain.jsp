@@ -1,4 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +12,7 @@
 <link rel="stylesheet" href="css/mainpage/login.css">
 <link rel="stylesheet" href="css/mainpage/topmenu.css">
 <link rel="stylesheet" href="js/mainpage.mainpage.js">
-
+<link rel="icon" href="images/favicon/favicon.ico" type="image/x-icon">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="./js/bootstrap.js"></script>
 
@@ -22,13 +25,7 @@
 
 <!-- ================================================================================================================================== -->
 <!-- 내비게이션 바 -->
-<%-- <% 
-		String userID = null;
-		if(session.getAttribute("userID") != null) {
-			userID = (String) session.getAttribute("userID");
-		}
-	%> --%>
-<nav class="navbar navbar-default">
+<<nav class="navbar navbar-default">
 	<div class="container-fluid">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" 
@@ -43,17 +40,6 @@
 		
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" 
-						data-toggle="dropdown" 
-						role="button" 
-						aria-haspopup="true" 
-						aria-expanded="false">홈페이지 소개<span class="caret"></span>
-					</a>
-					<ul class="dropdown-menu">
-						<li><a href="#">홈페이지 소개</a></li>
-					</ul>
-				</li>
 				
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" 
@@ -67,30 +53,30 @@
 		              <li class="dropdown-submenu">
 		                <a tabindex="-1" href="#">서울</a>
 		                <ul class="dropdown-menu">
-		                  <li><a tabindex="-1" href="#">서울북한산럭셔리카라반&수영장글램핑</a></li>
+		                  <li><a tabindex="-1" href="list?campNumber=1">서울북한산럭셔리카라반&수영장글램핑</a></li>
 		                </ul>	                 
 		              </li>
 		              
 		              <li class="dropdown-submenu">
 		              	<a tabindex="-1" href="#">경기</a>	
 		              	<ul class="dropdown-menu">
-		                  <li><a tabindex="-1" href="#">가평 달빛정원글랭핑&캠핑</a></li>
-		                  <li><a tabindex="-1" href="#">글램비 글램핑</a></li>
-		                  <li><a tabindex="-1" href="#">동화힐링캠프글램핑</a></li>
-		                  <li><a tabindex="-1" href="#">소풍 캠핑장</a></li>
-		                  <li><a tabindex="-1" href="#">왕산 오토캠핑장</a></li>
-		                  <li><a tabindex="-1" href="#">포천 프로미스 캠프</a></li>
-		                  <li><a tabindex="-1" href="#">하늘 숲 글램핑파크</a></li>
-		                  <li><a tabindex="-1" href="#">호수산장관광농원</a></li>
+		                  <li><a tabindex="-1" href="list?campNumber=2">가평 달빛정원글랭핑&캠핑</a></li>
+		                  <li><a tabindex="-1" href="list?campNumber=3">글램비 글램핑</a></li>
+		                  <li><a tabindex="-1" href="list?campNumber=4">동화힐링캠프글램핑</a></li>
+		                  <li><a tabindex="-1" href="list?campNumber=5">소풍 캠핑장</a></li>
+		                  <li><a tabindex="-1" href="list?campNumber=6">왕산 오토캠핑장</a></li>
+		                  <li><a tabindex="-1" href="list?campNumber=7">포천 프로미스 캠프</a></li>
+		                  <li><a tabindex="-1" href="list?campNumber=8">하늘 숲 글램핑파크</a></li>
+		                  <li><a tabindex="-1" href="#">호수산장관광농원</a></li> <!--자료 없음  -->
 		                </ul>	
 		              </li>
 		              
 		              <li class="dropdown-submenu">
 		              	<a tabindex="-1" href="#">강원</a>	
 		              	<ul class="dropdown-menu">
-		                  <li><a tabindex="-1" href="#">동강 전망휴양림 오토캠핑장</a></li>
-		                  <li><a tabindex="-1" href="#">별마로 빌리지</a></li>
-		                  <li><a tabindex="-1" href="#">소금강 오토캠프장</a></li>
+		                  <li><a tabindex="-1" href="#">동강 전망휴양림 오토캠핑장</a></li> <!--자료없음  -->
+		                  <li><a tabindex="-1" href="list?campNumber=12">별마로 빌리지</a></li>
+		                  <li><a tabindex="-1" href="list?campNumber=11">소금강 오토캠프장</a></li>
 		                </ul>	
 		              </li>
 		              
@@ -99,15 +85,15 @@
 		              <li class="dropdown-submenu">
 		              	<a tabindex="-1" href="#">충남</a>	
 		              	<ul class="dropdown-menu">
-		                  <li><a tabindex="-1" href="#">솔바람 캠핑장</a></li>
-		                  <li><a tabindex="-1" href="#">태안 캠핑코리아</a></li>
+		                  <li><a tabindex="-1" href="#">솔바람 캠핑장</a></li> <!-- 데이터 없음 -->
+		                  <li><a tabindex="-1" href="list?campNumber=9">태안 캠핑코리아</a></li>
 		                </ul>	
 		              </li>
 		              
 		              <li class="dropdown-submenu">
 		              	<a tabindex="-1" href="#">전북</a>	
-		              	<ul class="dropdown-menu">
-		                  <li><a tabindex="-1" href="#">변산반도국립공원 고사포 야영장</a></li>
+		              	<ul class="dropdown-menu"> 
+		                  <li><a tabindex="-1" href="#">변산반도국립공원 고사포 야영장</a></li>  <!-- 데이터 없음 -->
 		                </ul>	
 		              </li>	
 		              
@@ -116,33 +102,21 @@
 		              <li class="dropdown-submenu">
 		              	<a tabindex="-1" href="#">경북</a>	
 		              	<ul class="dropdown-menu">
-		                  <li><a tabindex="-1" href="#">스카이글램핑</a></li>
+		                  <li><a tabindex="-1" href="list?campNumber=10">스카이글램핑</a></li>
 		                </ul>	
 		              </li>		
 		              
 		              <li class="dropdown-submenu">
 		              	<a tabindex="-1" href="#">경남</a>	
 		              	<ul class="dropdown-menu">
-		                  <li><a tabindex="-1" href="#">사천 비토 솔섬 오토캠핑장</a></li>
+		                  <li><a tabindex="-1" href="#">사천 비토 솔섬 오토캠핑장</a></li>  <!-- 데이터 없음 -->
 		                </ul>	
 		              </li>	
 		              
-		              <li><a tabindex="-1" href="#">제주</a></li>			              	              
+		              <li><a tabindex="-1" href="#">제주</a></li>  <!-- 데이터 없음 -->			               	              
             		</ul>
 				</li>
 				
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" 
-						data-toggle="dropdown" 
-						role="button" 
-						aria-haspopup="true" 
-						aria-expanded="false">
-						캠핑장 리뷰 게시판<span class="caret"></span>
-					</a>
-					<ul class="dropdown-menu">
-						<li><a href="list">캠핑장 리뷰 게시판</a></li>
-					</ul>
-				</li>
 				
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" 
@@ -158,44 +132,30 @@
 				</li>
 			</ul>
 
-		<%-- 	<%
-			 // 접속하기는 로그인이 되어있지 않은 경우만 나오게한다
-				if(userID == null) {
-			%> --%>
 		
 			<div class="nav navbar-nav navbar-right">
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-						접속하기<span class="caret"></span>
+						<c:if test="${manager==null}">
+								로그인
+							</c:if>
+							<c:if test="${manager!=null}">
+								관리자등록
+							</c:if>
+							<span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
-						<li><a href="loginMain">로그인</a></li>
-						<li><a href="register">회원가입</a></li>
+							<c:if test="${manager==null}">
+								<li><a href="loginMain">로그인</a></li>
+							</c:if>
+							<c:if test="${manager!=null}">
+								<li><a href="register">관리자등록</a></li>
+								<li><a href="logout">로그아웃</a></li>
+							</c:if>
 					</ul>
 					
 				</li>
 			</div>
-			<%-- 
-				요부분은 나중에 관리자 모드할 때 써먹을 수 있을 거 같아서 냅둔 - 백엔트 : 이원희
-			
-			<%
-			 // 로그인이 되어있는 사람만 볼수 있는 화면
-				} else {
-			%>
-			<div class="nav navbar-nav navbar-right">
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-						회원관리<span class="caret"></span>
-					</a>
-					<ul class="dropdown-menu">
-						<li><a href="logoutAction">로그아웃</a></li>
-					</ul>
-					
-				</li>
-			</div>
-			<%
-				}
-			%> --%>
 			</div>
 		</div>
 </nav>

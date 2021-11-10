@@ -6,5 +6,5 @@
 	<bean class="com.project.vo.CampingVO" id="vo"/>
 	<bean class="com.project.vo.CampDataVO" id="campDataVO"/>
 	<bean class="com.project.vo.CampingList" id="list"/>
-	
+	<bean class="com.project.vo.CampingManagerVO" id="campingManagerVO"></bean>
 </beans>

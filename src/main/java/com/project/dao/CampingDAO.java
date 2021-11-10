@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.project.vo.CampDataVO;
+import com.project.vo.CampingManagerVO;
 import com.project.vo.CampingVO;
 
 public interface CampingDAO {
@@ -26,5 +27,9 @@ public interface CampingDAO {
 	CampingVO selectByIdx(int idx);
 
 	CampDataVO selectCamp(int campNumber);
+
+	void delete(int idx);
+
+	void register(CampingManagerVO campingManagerVO);
 
 }

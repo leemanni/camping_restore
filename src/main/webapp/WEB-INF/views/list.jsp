@@ -41,17 +41,6 @@
 		
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" 
-						data-toggle="dropdown" 
-						role="button" 
-						aria-haspopup="true" 
-						aria-expanded="false">홈페이지 소개<span class="caret"></span>
-					</a>
-					<ul class="dropdown-menu">
-						<li><a href="#">홈페이지 소개</a></li>
-					</ul>
-				</li>
 				
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" 
@@ -65,30 +54,30 @@
 		              <li class="dropdown-submenu">
 		                <a tabindex="-1" href="#">서울</a>
 		                <ul class="dropdown-menu">
-		                  <li><a tabindex="-1" href="#">서울북한산럭셔리카라반&수영장글램핑</a></li>
+		                  <li><a tabindex="-1" href="list?campNumber=1">서울북한산럭셔리카라반&수영장글램핑</a></li>
 		                </ul>	                 
 		              </li>
 		              
 		              <li class="dropdown-submenu">
 		              	<a tabindex="-1" href="#">경기</a>	
 		              	<ul class="dropdown-menu">
-		                  <li><a tabindex="-1" href="#">가평 달빛정원글랭핑&캠핑</a></li>
-		                  <li><a tabindex="-1" href="#">글램비 글램핑</a></li>
-		                  <li><a tabindex="-1" href="#">동화힐링캠프글램핑</a></li>
-		                  <li><a tabindex="-1" href="#">소풍 캠핑장</a></li>
-		                  <li><a tabindex="-1" href="#">왕산 오토캠핑장</a></li>
-		                  <li><a tabindex="-1" href="#">포천 프로미스 캠프</a></li>
-		                  <li><a tabindex="-1" href="#">하늘 숲 글램핑파크</a></li>
-		                  <li><a tabindex="-1" href="#">호수산장관광농원</a></li>
+		                  <li><a tabindex="-1" href="list?campNumber=2">가평 달빛정원글랭핑&캠핑</a></li>
+		                  <li><a tabindex="-1" href="list?campNumber=3">글램비 글램핑</a></li>
+		                  <li><a tabindex="-1" href="list?campNumber=4">동화힐링캠프글램핑</a></li>
+		                  <li><a tabindex="-1" href="list?campNumber=5">소풍 캠핑장</a></li>
+		                  <li><a tabindex="-1" href="list?campNumber=6">왕산 오토캠핑장</a></li>
+		                  <li><a tabindex="-1" href="list?campNumber=7">포천 프로미스 캠프</a></li>
+		                  <li><a tabindex="-1" href="list?campNumber=8">하늘 숲 글램핑파크</a></li>
+		                  <li><a tabindex="-1" href="#">호수산장관광농원</a></li> <!--자료 없음  -->
 		                </ul>	
 		              </li>
 		              
 		              <li class="dropdown-submenu">
 		              	<a tabindex="-1" href="#">강원</a>	
 		              	<ul class="dropdown-menu">
-		                  <li><a tabindex="-1" href="#">동강 전망휴양림 오토캠핑장</a></li>
-		                  <li><a tabindex="-1" href="#">별마로 빌리지</a></li>
-		                  <li><a tabindex="-1" href="#">소금강 오토캠프장</a></li>
+		                  <li><a tabindex="-1" href="#">동강 전망휴양림 오토캠핑장</a></li> <!--자료없음  -->
+		                  <li><a tabindex="-1" href="list?campNumber=12">별마로 빌리지</a></li>
+		                  <li><a tabindex="-1" href="list?campNumber=11">소금강 오토캠프장</a></li>
 		                </ul>	
 		              </li>
 		              
@@ -97,15 +86,15 @@
 		              <li class="dropdown-submenu">
 		              	<a tabindex="-1" href="#">충남</a>	
 		              	<ul class="dropdown-menu">
-		                  <li><a tabindex="-1" href="#">솔바람 캠핑장</a></li>
-		                  <li><a tabindex="-1" href="#">태안 캠핑코리아</a></li>
+		                  <li><a tabindex="-1" href="#">솔바람 캠핑장</a></li> <!-- 데이터 없음 -->
+		                  <li><a tabindex="-1" href="list?campNumber=9">태안 캠핑코리아</a></li>
 		                </ul>	
 		              </li>
 		              
 		              <li class="dropdown-submenu">
 		              	<a tabindex="-1" href="#">전북</a>	
-		              	<ul class="dropdown-menu">
-		                  <li><a tabindex="-1" href="#">변산반도국립공원 고사포 야영장</a></li>
+		              	<ul class="dropdown-menu"> 
+		                  <li><a tabindex="-1" href="#">변산반도국립공원 고사포 야영장</a></li>  <!-- 데이터 없음 -->
 		                </ul>	
 		              </li>	
 		              
@@ -114,33 +103,21 @@
 		              <li class="dropdown-submenu">
 		              	<a tabindex="-1" href="#">경북</a>	
 		              	<ul class="dropdown-menu">
-		                  <li><a tabindex="-1" href="#">스카이글램핑</a></li>
+		                  <li><a tabindex="-1" href="list?campNumber=10">스카이글램핑</a></li>
 		                </ul>	
 		              </li>		
 		              
 		              <li class="dropdown-submenu">
 		              	<a tabindex="-1" href="#">경남</a>	
 		              	<ul class="dropdown-menu">
-		                  <li><a tabindex="-1" href="#">사천 비토 솔섬 오토캠핑장</a></li>
+		                  <li><a tabindex="-1" href="#">사천 비토 솔섬 오토캠핑장</a></li>  <!-- 데이터 없음 -->
 		                </ul>	
 		              </li>	
 		              
-		              <li><a tabindex="-1" href="#">제주</a></li>			              	              
+		              <li><a tabindex="-1" href="#">제주</a></li>  <!-- 데이터 없음 -->			               	              
             		</ul>
 				</li>
 				
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" 
-						data-toggle="dropdown" 
-						role="button" 
-						aria-haspopup="true" 
-						aria-expanded="false">
-						캠핑장 리뷰 게시판<span class="caret"></span>
-					</a>
-					<ul class="dropdown-menu">
-						<li><a href="list">캠핑장 리뷰 게시판</a></li>
-					</ul>
-				</li>
 				
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" 
@@ -155,17 +132,20 @@
 					</ul>
 				</li>
 			</ul>
-				<div class="nav navbar-nav navbar-right">
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-							<c:if test="${manager==null}">
-								로그인<span class="caret"></span>
+
+		
+			<div class="nav navbar-nav navbar-right">
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+						<c:if test="${manager==null}">
+								로그인
 							</c:if>
 							<c:if test="${manager!=null}">
-								관리자등록<span class="caret"></span>
+								관리자등록
 							</c:if>
-						</a>
-						<ul class="dropdown-menu">
+							<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu">
 							<c:if test="${manager==null}">
 								<li><a href="loginMain">로그인</a></li>
 							</c:if>
@@ -173,9 +153,10 @@
 								<li><a href="register">관리자등록</a></li>
 								<li><a href="logout">로그아웃</a></li>
 							</c:if>
-						</ul>
-					</li>
-				</div>
+					</ul>
+					
+				</li>
+			</div>
 			</div>
 		</div>
 </nav>
@@ -199,7 +180,6 @@
 									<tbody>
 										<tr>
 											<th scope="col">이름</th>
-											<!-- <td>가평 달빛정원글랭핑 캠핑</td> -->
 											<td>${campDataVO.name}</td>
 										</tr>
 										<tr>
@@ -246,9 +226,9 @@
 						<ul class="camp_tab05">
 							<li class="on"><a href="#" class="camp_intro">캠핑장 소개</a></li>
 							<li id="c_guide"><a href="${campDataVO.url}" class="camp_guide">예약안내</a></li>
-							<li id="c_map"><a href="#" class="camp_map">위치/주변정보</a></li>
+							<li id="c_map"><a href="list3?campNumber=${campNumber}" class="camp_map">위치/주변정보</a></li>
 							<li id="c_review"><a href="list2?campNumber=${campNumber}" class="camp_review">캠핑 여행후기</a></li>
-							<li id="c_notice"><a href="#" class="camp_notice">공지/이벤트</a></li>
+							<li id="c_notice"><a href="list4?campNumber=${campNumber}" class="camp_notice">캠핑장 이용수칙</a></li>
 						</ul>
 
 						
@@ -275,35 +255,6 @@
 											</div>
 										</div>
 
-										<!-- <div class="col-sm-4">
-											<div class="item">
-												<img src="./images/camping_0_0.png" class="img-thumbnail">
-											</div>
-										</div>
-
-										<div class="col-sm-4">
-											<div class="item">
-												<img src="./images/camping_0_0.png" class="img-thumbnail">
-											</div>
-										</div>
-
-										<div class="col-sm-4">
-											<div class="item">
-												<img src="./images/camping_0_0.png" class="img-thumbnail">
-											</div>
-										</div>
-
-										<div class="col-sm-4">
-											<div class="item">
-												<img src="./images/camping_0_0.png" class="img-thumbnail">
-											</div>
-										</div>
-
-										<div class="col-sm-4">
-											<div class="item">
-												<img src="./images/camping_0_0.png" class="img-thumbnail">
-											</div>
-										</div> -->
 										</c:forEach>
 									</div>
 								</div>

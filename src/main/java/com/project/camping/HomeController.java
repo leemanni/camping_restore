@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.project.dao.CampingDAO;
 import com.project.vo.CampDataVO;
 import com.project.vo.CampingList;
+import com.project.vo.CampingManagerVO;
 import com.project.vo.CampingVO;
 
 /**
@@ -93,7 +94,7 @@ public class HomeController {
 		campingVO.setCampNumber(Integer.parseInt(request.getParameter("campNumber")));
 		model.addAttribute("campNumber", campingVO.getCampNumber());
 		dao.insert(campingVO);
-		System.out.println(campingVO.getCampNumber());
+//		System.out.println(campingVO.getCampNumber());
 		ctx.close();
 		return "redirect:list2";
 	}
@@ -184,6 +185,35 @@ public class HomeController {
 		ctx.close();
 		return "list2";
 	}
+	/**
+	 * @param request
+	 * @param model
+	 * @return
+	 * 댓글 페이지
+	 * 
+	 */
+	@RequestMapping("/list4")
+	public String list4(HttpServletRequest request, Model model) {
+		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("classpath:application_ctx.xml");
+		CampingDAO dao = sqlSession.getMapper(CampingDAO.class);
+		
+//		=================================================댓글
+		int campNumber = 1; // 캠핑장 구분 index
+		try {
+			campNumber = Integer.parseInt(request.getParameter("campNumber"));
+		} catch (Exception e) {
+		}
+		
+		model.addAttribute("campNumber", campNumber);
+		
+//		=================================================캠핑장 자료
+		CampDataVO campDataVO = dao.selectCamp(campNumber);
+		model.addAttribute("campDataVO", campDataVO);
+		model.addAttribute("enter", "\r\n");
+		
+		ctx.close();
+		return "list4";
+	}
 	
 	/**
 	 * @param request
@@ -244,7 +274,7 @@ public class HomeController {
 	public String up(HttpServletRequest request, Model model) {
 		System.out.println("컨트롤러의 increment() 메소드");
 	
-		CampingDAO mapper = sqlSession.getMapper(CampingDAO.class);
+		CampingDAO dao = sqlSession.getMapper(CampingDAO.class);
 		
 		int currentPage = 1;
 		int campNumber = 0;
@@ -256,7 +286,7 @@ public class HomeController {
 //		request 객체로 넘어온 조회수를 증가시킬 글번호를 받는다.		
 		int idx = Integer.parseInt(request.getParameter("idx"));
 //		조회수를 증가시키는 메소드를 실행한다.
-		mapper.up(idx);
+		dao.up(idx);
 
 		model.addAttribute("idx", idx);
 		model.addAttribute("campNumber", campNumber);
@@ -273,7 +303,7 @@ public class HomeController {
 	public String down(HttpServletRequest request, Model model) {
 		System.out.println("컨트롤러의 increment() 메소드");
 	
-		CampingDAO mapper = sqlSession.getMapper(CampingDAO.class);
+		CampingDAO dao = sqlSession.getMapper(CampingDAO.class);
 		
 		int currentPage = 1;
 		int campNumber = 0;
@@ -286,7 +316,7 @@ public class HomeController {
 //		request 객체로 넘어온 조회수를 증가시킬 글번호를 받는다.		
 		int idx = Integer.parseInt(request.getParameter("idx"));
 //		조회수를 증가시키는 메소드를 실행한다.
-		mapper.down(idx);
+		dao.down(idx);
 		
 		model.addAttribute("idx", idx);
 		model.addAttribute("campNumber", campNumber);
@@ -306,9 +336,37 @@ public class HomeController {
 			currentPage = Integer.parseInt(request.getParameter("currentPage"));
 		} catch (Exception e) {
 		}
-		CampingDAO mapper = sqlSession.getMapper(CampingDAO.class);
-		mapper.update(campingVO);
+		CampingDAO dao = sqlSession.getMapper(CampingDAO.class);
+		dao.update(campingVO);
 		
+//		글 수정 작업 후 돌아갈 페이지 번호를 model 객체에 저장한다.
+		model.addAttribute("currentPage", currentPage);
+		model.addAttribute("campNumber", campNumber);
+		
+		return "redirect:list2";
+	}
+	
+	/**
+	 * @param request
+	 * @param model
+	 * @param campingVO
+	 * @return
+	 * 관리자가 게시글을 삭제
+	 */
+	@RequestMapping("/delete")
+	public String delete(HttpServletRequest request, Model model) {
+		System.out.println("컨트롤러의 update() 메소드");
+		int currentPage = 1;
+		int campNumber = 0;
+		try {
+			campNumber = Integer.parseInt(request.getParameter("campNumber"));
+			currentPage = Integer.parseInt(request.getParameter("currentPage"));
+		} catch (Exception e) {
+		}
+		CampingDAO dao = sqlSession.getMapper(CampingDAO.class);
+		
+		int idx = Integer.parseInt(request.getParameter("idx"));
+		dao.delete(idx);
 //		글 수정 작업 후 돌아갈 페이지 번호를 model 객체에 저장한다.
 		model.addAttribute("currentPage", currentPage);
 		model.addAttribute("campNumber", campNumber);
@@ -320,13 +378,13 @@ public class HomeController {
 	public String contentView(HttpServletRequest request, Model model) {
 		System.out.println("컨트롤러의 contentView() 메소드");
 		
-		CampingDAO mapper = sqlSession.getMapper(CampingDAO.class);
+		CampingDAO dao = sqlSession.getMapper(CampingDAO.class);
 
 		int idx = Integer.parseInt(request.getParameter("idx"));
 
 		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("classpath:application_ctx.xml");
 		CampingVO campingVO = ctx.getBean("vo", CampingVO.class);
-		campingVO = mapper.selectByIdx(idx);
+		campingVO = dao.selectByIdx(idx);
 
 		model.addAttribute("vo", campingVO);
 		model.addAttribute("currentPage", Integer.parseInt(request.getParameter("currentPage")));
@@ -345,7 +403,38 @@ public class HomeController {
    public String register(HttpServletRequest request, Model model) {
 	   return "register";
    }
-   
+/**
+ * @param request
+ * @param model
+ * @return
+ * 관리자로 로그인 하면 관리자를 등록할 수 있는 기능
+ */
+@RequestMapping("/insertManager")
+public String insertManager(HttpServletRequest request, Model model) {
+	GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("classpath:application_ctx.xml");
+	CampingManagerVO managerVO= ctx.getBean(CampingManagerVO.class);
+	managerVO.setId(request.getParameter("id"));
+	managerVO.setPw(request.getParameter("pw"));
+	System.out.println(managerVO);
+	CampingDAO dao = sqlSession.getMapper(CampingDAO.class);
+	dao.register(managerVO);
+	return "redirect:mainpage";
+}
+/**
+* @param request
+* @param model
+* @return
+* 관리자로 로그인 하면 관리자를 등록할 수 있는 기능
+*/ 
+@RequestMapping("/logout")
+public String logout(HttpServletRequest request, Model model) {
+	
+	HttpSession session = request.getSession();
+	session.invalidate();
+	
+	
+	   return "redirect:mainpage";
+}
    
    /**
  * @param request

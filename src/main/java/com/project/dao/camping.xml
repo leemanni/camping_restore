@@ -44,5 +44,15 @@
 		select * from campData where idx = #{campNumber}
 	</select>
 	
+	<!-- 댓글 한 건 지우기 -->
+	<delete id="delete" parameterType="int">
+		delete from camping where idx = #{idx}
+	</delete>
+	
+	<!--관리자 추가  -->
+	<insert id="register" parameterType="campingManagerVO">
+		INSERT INTO CAMPINGMANAGER (id, pw) values(#{id}, #{pw})
+	</insert>
+	
 	
 </mapper>
