@@ -42,7 +42,7 @@ public class HomeController {
 	
 	/**
 	 * 관리자 로그인 페이지 연결
-	 */
+list()	 */
 	@RequestMapping("/loginMain")
 	public String loginMain(HttpServletRequest request, Model model) {
 		return "loginMain";
@@ -70,7 +70,6 @@ public class HomeController {
 		}else {
 			System.out.println("false");
 		}
-		
 		
 		return "redirect:list";
 	}

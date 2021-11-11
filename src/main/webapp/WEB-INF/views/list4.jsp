@@ -130,8 +130,6 @@
 					</ul>
 				</li>
 			</ul>
-
-		
 			<div class="nav navbar-nav navbar-right">
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -152,7 +150,6 @@
 								<li><a href="logout">로그아웃</a></li>
 							</c:if>
 					</ul>
-					
 				</li>
 			</div>
 			</div>
@@ -225,13 +222,11 @@
 						
 						<ul class="camp_tab05">
 							<li class="on"><a href="#" class="camp_intro">캠핑장 소개</a></li>
-							<li id="c_guide"><a href="#" class="camp_guide">이용안내</a></li>
+							<li id="c_guide"><a href="${campDataVO.url}" class="camp_guide">예약안내</a></li>
 							<li id="c_map"><a href="list3?campNumber=${campNumber}" class="camp_map">위치/주변정보</a></li>
 							<li id="c_review"><a href="list2?campNumber=${campNumber}" class="camp_review">캠핑 여행후기</a></li>
-							<li id="c_notice"><a href="#" class="camp_notice">공지/이벤트</a></li>
+							<li id="c_notice"><a href="list4?campNumber=${campNumber}" class="camp_notice">캠핑장 이용수칙</a></li>
 						</ul>
-	
-						
 					</div>
 				</div>
 			</div>
@@ -242,7 +237,6 @@
 					</div>
 				</div>
 			</div>
-			
 		</div>
 	</section>
 	
