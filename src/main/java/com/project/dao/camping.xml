@@ -54,5 +54,14 @@
 		INSERT INTO CAMPINGMANAGER (id, pw) values(#{id}, #{pw})
 	</insert>
 	
+	<!-- 전체 캠핑장 개수 가져오기 -->
+	<select id="seletCount" resultType="int">	
+		select count(*) from camping
+	</select>
+	
+	
+	<select id="selectDataList" resultType="String">
+		SELECT name FROM CAMPDATA ORDER BY idx asc
+	</select>
 	
 </mapper>

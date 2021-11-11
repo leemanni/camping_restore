@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/mainpage/mainpage.css">
 <link rel="stylesheet" href="css/mainpage/topmenu.css">  <!-- 지역별 토글 지정돼 있음 자우면 안됨 -->
+<link rel="stylesheet" href="css/list2/review.css">  <!-- 지역별 토글 지정돼 있음 자우면 안됨 -->
 <link rel="stylesheet" type="text/css" href="css/list/style.css" />
 <link rel="icon" href="images/favicon/favicon.ico" type="image/x-icon">
 <script type="text/javascript" src="js/mainpage.mainpage.js"></script>
@@ -129,23 +130,22 @@
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 						<c:if test="${manager==null}">
-								로그인
-							</c:if>
-							<c:if test="${manager!=null}">
-								관리자등록
-							</c:if>
-							<span class="caret"></span>
+							로그인
+						</c:if>
+						<c:if test="${manager!=null}">
+							관리자등록
+						</c:if>
+						<span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
-							<c:if test="${manager==null}">
-								<li><a href="loginMain">로그인</a></li>
-							</c:if>
-							<c:if test="${manager!=null}">
-								<li><a href="register">관리자등록</a></li>
-								<li><a href="logout">로그아웃</a></li>
-							</c:if>
+						<c:if test="${manager==null}">
+							<li><a href="loginMain">로그인</a></li>
+						</c:if>
+						<c:if test="${manager!=null}">
+							<li><a href="register">관리자등록</a></li>
+							<li><a href="logout">로그아웃</a></li>
+						</c:if>
 					</ul>
-					
 				</li>
 			</div>
 			</div>
@@ -161,7 +161,6 @@
 							<div class="img_b">
 								<img src="./images/camping_0_0.png" />
 							</div>
-
 							<div class="cont_tb">
 								<table class="table">
 									<colgroup>
@@ -223,7 +222,7 @@
 						</ul>
 
 				<c:set var="list" value="${campingList.list}"/>
-					<table align="center" width="1000" cellspacing="0">
+					<table class="board" align="center" width="1000" cellspacing="0">
 						<tr>
 							<td width="70" align="center">번호</td>
 							<td width="640" align="center">내용</td>
@@ -360,7 +359,7 @@
 	
 					<!-- 글쓰기 시작-->
 					<form action="insert" method="post" style="text-align: center;">
-						<table align="center">
+						<table class="insert" align="center">
 						  <tr>
 							<th colspan="5" style="text-align: center;">게시판에 글쓰기</th>
 						  </tr>

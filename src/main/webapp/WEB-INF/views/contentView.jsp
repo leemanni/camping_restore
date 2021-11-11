@@ -8,9 +8,11 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/mainpage/mainpage.css">
+<link rel="stylesheet" href="css/contentview/contentview.css">
 <link rel="stylesheet" href="css/mainpage/topmenu.css">
 <!-- 지역별 토글 지정돼 있음 지우면 안됨 -->
 <link rel="stylesheet" type="text/css" href="css/list/style.css" />
+<link rel="stylesheet" type="text/css" href="css/contentView/contentview.css" />
 <link rel="icon" href="images/favicon/favicon.ico" type="image/x-icon">
 <script type="text/javascript" src="js/mainpage.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -63,7 +65,6 @@
 		
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" 
 						data-toggle="dropdown" 
@@ -168,15 +169,14 @@
 							<span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
-							<c:if test="${manager==null}">
-								<li><a href="loginMain">로그인</a></li>
-							</c:if>
-							<c:if test="${manager!=null}">
-								<li><a href="register">관리자등록</a></li>
-								<li><a href="logout">로그아웃</a></li>
-							</c:if>
+						<c:if test="${manager==null}">
+							<li><a href="loginMain">로그인</a></li>
+						</c:if>
+						<c:if test="${manager!=null}">
+							<li><a href="register">관리자등록</a></li>
+							<li><a href="logout">로그아웃</a></li>
+						</c:if>
 					</ul>
-					
 				</li>
 			</div>
 			</div>
@@ -189,7 +189,6 @@
 				<span class="skip"></span>
 			</div>
 			<div class="layout">
-
 				<ul class="camp_tab05">
 					<li class="on"><a href="#" class="camp_intro">캠핑장 소개</a></li>
 					<li id="c_guide"><a href="#" class="camp_guide">이용안내</a></li>
@@ -199,12 +198,12 @@
 				</ul>
 
 				<!-- 1개의 글 -->
-				<form action="update" method="post">
-					<table width="600" align="center" border="1" cellpadding="5" cellspacing="0">
+				<form class="updateForm" action="update" method="post">
+					<table class="up" width="1200px" align="center" border="1" cellpadding="5" cellspacing="0">
 						<tr>
-							<td width="80" align="center">글번호</td>
-							<td width="320" align="center">이름</td>
-							<td width="120" align="center">작성일</td>
+							<td width="200px" align="center">글번호</td>
+							<td width="800px" align="center">이름</td>
+							<td width="200px" align="center">작성일</td>
 						</tr>
 						<tr>
 							<td align="center">${vo.idx}</td>
@@ -234,7 +233,7 @@
 						</tr>
 						<tr>
 							<td align="center">내용</td>
-							<td colspan="3"><textarea rows="10" name="content" style="resize: none; width: 98%;">${vo.content}</textarea></td>
+							<th colspan="3"><textarea rows="10" name="content" style="resize: none; width: 98%;">${vo.content}</textarea></td>
 						</tr>
 						<tr>
 							<td colspan="3" align="center"><input type="hidden" name="idx" value="${vo.idx}" />

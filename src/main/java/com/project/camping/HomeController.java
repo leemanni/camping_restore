@@ -1,5 +1,6 @@
 package com.project.camping;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Locale;
 
@@ -37,6 +38,13 @@ public class HomeController {
 	
 	@RequestMapping("/mainpage")
 	public String mainpage(HttpServletRequest request, Model model) {
+		CampingDAO dao = sqlSession.getMapper(CampingDAO.class);
+		int totalCamp = dao.seletCount();
+		model.addAttribute("totalCamp", totalCamp);
+		
+		ArrayList<String> cmapDataList = dao.selectDataList(); 
+		
+		model.addAttribute("cmapDataList", cmapDataList);
 		return "mainpage";
 	}
 	

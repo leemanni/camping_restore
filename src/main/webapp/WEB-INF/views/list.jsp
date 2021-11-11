@@ -251,6 +251,7 @@
 										<c:forEach begin="0" end="2" step="1" var="i">
 										<div class="col-sm-4">
 											<div class="item">
+												<!-- 이름_index(0~n)_capmnum.jpg -->
 												<img src="./images/camping_${i}_${campNumber}.jpg" class="img-thumbnail">
 											</div>
 										</div>
@@ -270,32 +271,25 @@
 	
 	<footer style="background-color: #000000; color: #ffffff">
 		<div class="container">
-			<br/>
+			
 			<div class="row">
-				<div class="col-sm-2" style="text-align: center;">
+				<div class="col-sm-3" style="text-align: center;">
 					<h5 class="dev_name">개발자: 김재호</h5>
 					<h5 class="dev_name">개발자: 김호연</h5>
 					<h5 class="dev_name">개발자: 신영진</h5>
 					<h5 class="dev_name">개발자: 이원희</h5>
 					<h5 class="dev_name">개발자: 전상욱</h5>
+					<br>
 				</div>
 				
-				<div class="col-sm-4">
+				<div class="col-sm-6">
 					<h5 class="dev_name">개발자 문의처</h5>
 					<h5 class="dev_name">E-mail: sangwook0217@gmail.com</h5>
 					<h5 class="dev_name">E-mail: cjffydahs@naver.com</h5>
 				</div>
 				
-				<div class="col-sm-4" style="text-align: center;">
+				<div class="col-sm-3" style="text-align: center;">
 					<h5 class="dev_name">입금 계좌: 카카오 뱅크 3333-12-4618614</h5>
-				</div>
-				<div class="col-sm-2" style="text-align: center;">
-					<h5>개발자 SNS</h5>
-					<div class="list-group">
-						<a href="https://program.genie.co.kr/swf/main" class="list-group-item">공식 홈페이지</a>
-						<a href="https://www.instagram.com/mnet_dance/" class="list-group-item">공식 인스타그램</a>
-						<a href="https://program.naver.com/p/18923570" class="list-group-item">공식 네이버TV</a>
-					</div>
 				</div>
 			</div>
 		</div>

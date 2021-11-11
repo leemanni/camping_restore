@@ -241,111 +241,16 @@
 <div class="container">
 	<div class="row">
 		<div class='list-group gallery'>
-			<c:forEach begin="0" end="2" step="1" var="i">
+			<c:forEach begin="1" end="12" step="1" var="i">
 	            <div class='col-sm-4 col-xs-6 col-md-3 col-lg-3'>
-	                <a class="thumbnail fancybox" rel="ligthbox" href="http://placehold.it/300x320.png">
-	                    <img class="img-responsive" alt="" src="images/camping_${i}_1.jpg" />
+	                <a class="thumbnail fancybox" rel="ligthbox" href="list?campNumber=${i}">
+	                    <img class="img-responsive" alt="" src="images/camping_0_${i}.jpg" />
 	                    <div class='text-right'>
-	                        <small class='text-muted'>Image Title</small>
+	                        <small class='text-muted'>${cmapDataList.get(i-1)}</small> <!-- 백에서 전체 캠핑장 관련 데이터 가져오기 -->
 	                    </div> <!-- text-right / end -->
 	                </a>
 	            </div> <!-- col-6 / end -->
 			</c:forEach>
-            <!-- <div class='col-sm-4 col-xs-6 col-md-3 col-lg-3'>
-                <a class="thumbnail fancybox" rel="ligthbox" href="http://placehold.it/300x320.png">
-                    <img class="img-responsive" alt="" src="http://placehold.it/320x320" />
-                    <div class='text-right'>
-                        <small class='text-muted'>Image Title</small>
-                    </div> text-right / end
-                </a>
-            </div> col-6 / end
-            <div class='col-sm-4 col-xs-6 col-md-3 col-lg-3'>
-                <a class="thumbnail fancybox" rel="ligthbox" href="http://placehold.it/300x320.png">
-                    <img class="img-responsive" alt="" src="http://placehold.it/320x320" />
-                    <div class='text-right'>
-                        <small class='text-muted'>Image Title</small>
-                    </div> text-right / end
-                </a>
-            </div> col-6 / end
-            <div class='col-sm-4 col-xs-6 col-md-3 col-lg-3'>
-                <a class="thumbnail fancybox" rel="ligthbox" href="http://placehold.it/300x320.png">
-                    <img class="img-responsive" alt="" src="http://placehold.it/320x320" />
-                    <div class='text-right'>
-                        <small class='text-muted'>Image Title</small>
-                    </div> text-right / end
-                </a>
-            </div> col-6 / end
-            <div class='col-sm-4 col-xs-6 col-md-3 col-lg-3'>
-                <a class="thumbnail fancybox" rel="ligthbox" href="http://placehold.it/300x320.png">
-                    <img class="img-responsive" alt="" src="http://placehold.it/320x320" />
-                    <div class='text-right'>
-                        <small class='text-muted'>Image Title</small>
-                    </div> text-right / end
-                </a>
-            </div> col-6 / end
-            <div class='col-sm-4 col-xs-6 col-md-3 col-lg-3'>
-                <a class="thumbnail fancybox" rel="ligthbox" href="http://placehold.it/300x320.png">
-                    <img class="img-responsive" alt="" src="http://placehold.it/320x320" />
-                    <div class='text-right'>
-                        <small class='text-muted'>Image Title</small>
-                    </div> text-right / end
-                </a>
-            </div> col-6 / end
-            
-            <div class='col-sm-4 col-xs-6 col-md-3 col-lg-3'>
-                <a class="thumbnail fancybox" rel="ligthbox" href="http://placehold.it/300x320.png">
-                    <img class="img-responsive" alt="" src="http://placehold.it/320x320" />
-                    <div class='text-right'>
-                        <small class='text-muted'>Image Title</small>
-                    </div> text-right / end
-                </a>
-            </div> col-6 / end
-            
-            <div class='col-sm-4 col-xs-6 col-md-3 col-lg-3'>
-                <a class="thumbnail fancybox" rel="ligthbox" href="http://placehold.it/300x320.png">
-                    <img class="img-responsive" alt="" src="http://placehold.it/320x320" />
-                    <div class='text-right'>
-                        <small class='text-muted'>Image Title</small>
-                    </div> text-right / end
-                </a>
-            </div> col-6 / end
-            
-            <div class='col-sm-4 col-xs-6 col-md-3 col-lg-3'>
-                <a class="thumbnail fancybox" rel="ligthbox" href="http://placehold.it/300x320.png">
-                    <img class="img-responsive" alt="" src="http://placehold.it/320x320" />
-                    <div class='text-right'>
-                        <small class='text-muted'>Image Title</small>
-                    </div> text-right / end
-                </a>
-            </div> col-6 / end
-            
-            <div class='col-sm-4 col-xs-6 col-md-3 col-lg-3'>
-                <a class="thumbnail fancybox" rel="ligthbox" href="http://placehold.it/300x320.png">
-                    <img class="img-responsive" alt="" src="http://placehold.it/320x320" />
-                    <div class='text-right'>
-                        <small class='text-muted'>Image Title</small>
-                    </div> text-right / end
-                </a>
-            </div> col-6 / end
-            
-             <div class='col-sm-4 col-xs-6 col-md-3 col-lg-3'>
-                <a class="thumbnail fancybox" rel="ligthbox" href="http://placehold.it/300x320.png">
-                    <img class="img-responsive" alt="" src="http://placehold.it/320x320" />
-                    <div class='text-right'>
-                        <small class='text-muted'>Image Title</small>
-                    </div> text-right / end
-                </a>
-            </div> col-6 / end     
-            
-            <div class='col-sm-4 col-xs-6 col-md-3 col-lg-3'>
-                <a class="thumbnail fancybox" rel="ligthbox" href="http://placehold.it/300x320.png">
-                    <img class="img-responsive" alt="" src="http://placehold.it/320x320" />
-                    <div class='text-right'>
-                        <small class='text-muted'>Image Title</small>
-                    </div> text-right / end
-                </a>
-            </div> col-6 / end      -->
-                                     
         </div> <!-- list-group / end -->
 	</div> <!-- row / end -->
 </div> <!-- container / end -->

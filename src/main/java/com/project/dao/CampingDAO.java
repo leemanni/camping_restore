@@ -32,4 +32,9 @@ public interface CampingDAO {
 
 	void register(CampingManagerVO campingManagerVO);
 
+	int seletCount();
+
+	ArrayList<String> selectDataList();
+
+
 }

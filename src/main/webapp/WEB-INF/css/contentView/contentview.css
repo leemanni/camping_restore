@@ -1,0 +1,42 @@
+/* contentView ============================================ */
+
+.updateForm{
+	/* display: flex;
+	justify-content: center;
+	 */
+}
+table.up {
+  margin-bottom: 20px;
+  border-collapse: collapse;
+  text-align: left;
+  line-height: 1.5;
+
+}
+table.up thead th {
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+  color: #369;
+  border-bottom: 3px solid #036;
+}
+table.up tbody th {
+  width: 150px;
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+  background: #f3f6f7;
+}
+table.up td {
+  /* width: 350px; */
+  padding: 10px;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+}
+
+
+
+
+
+
+
