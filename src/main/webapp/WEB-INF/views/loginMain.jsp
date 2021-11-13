@@ -25,7 +25,7 @@
 
 <!-- ================================================================================================================================== -->
 <!-- 내비게이션 바 -->
-<<nav class="navbar navbar-default">
+<nav class="navbar navbar-default">
 	<div class="container-fluid">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" 
@@ -171,18 +171,21 @@
    				<input type="radio" name="slide" id="slide2">
    				<input type="radio" name="slide" id="slide3">
    				<input type="radio" name="slide" id="slide4">
+   				<input type="radio" name="slide" id="slide5">
 				    <ul id="imgholder" class="imgs">
-        				<li><img src="./images/강원도.jpg" width="450" height="510"></li>
-        				<li><img src="./images/강원도.jpg" width="450" height="510"></li>
-        				<li><img src="./images/강원도.jpg" width="450" height="510"></li>
-        				<li><img src="./images/강원도.jpg" width="450" height="510"></li>
+        				<li><img src="./images/슬라이드1.JPG" width="450" height="510"></li>
+        				<li><img src="./images/슬라이드2.JPG" width="450" height="510"></li>
+        				<li><img src="./images/슬라이드3.JPG" width="450" height="510"></li>
+        				<li><img src="./images/슬라이드4.JPG" width="450" height="510"></li>
+        				<li><img src="./images/슬라이드5.JPG" width="450" height="510"></li>
     				</ul>
-    					<div class="bullets">
-        					<label for="slide1">&nbsp;</label>
-        					<label for="slide2">&nbsp;</label>
-        					<label for="slide3">&nbsp;</label>
-        					<label for="slide4">&nbsp;</label>
-    					</div>
+   					<div class="bullets">
+       					<label for="slide1">&nbsp;</label>
+       					<label for="slide2">&nbsp;</label>
+       					<label for="slide3">&nbsp;</label>
+       					<label for="slide4">&nbsp;</label>
+       					<label for="slide5">&nbsp;</label>
+   					</div>
 			</div>
 <br>
 

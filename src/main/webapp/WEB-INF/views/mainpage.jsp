@@ -113,18 +113,6 @@
             		</ul>
 				</li>
 				
-				<!-- <li class="dropdown">
-					<a href="#" class="dropdown-toggle" 
-						data-toggle="dropdown" 
-						role="button" 
-						aria-haspopup="true" 
-						aria-expanded="false">
-						캠핑장 리뷰 게시판<span class="caret"></span>
-					</a>
-					<ul class="dropdown-menu">
-						<li><a href="list">캠핑장 리뷰 게시판</a></li>
-					</ul>
-				</li> -->
 				
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" 
@@ -174,67 +162,39 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
             <div class="item active">
-                <img src="./images/강원도2.jpg">
-                <div class="carousel-caption">
-                    <h3>
-                        Headline</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                        tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem
-                        ipsum dolor sit amet, consetetur sadipscing elitr.</p>
-                </div>
+                <img src="./images/mainphotho.jpg" style="height :720px;"> 
+            </div>
+
+            <!-- End Item -->
+            <div class="item">
+            <iframe width="100%" height="720px" src="https://www.youtube.com/embed/FIreJ82UKHM" 
+            title="YouTube video player" frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen></iframe>
             </div>
             <!-- End Item -->
             <div class="item">
-                <img src="./images/강원도2.jpg">
-                <div class="carousel-caption">
-                    <h3>
-                        Headline</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                        tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem
-                        ipsum dolor sit amet, consetetur sadipscing elitr.</p>
-                </div>
+            <iframe width="100%" height="720px" src="https://www.youtube.com/embed/ThybOea6rZ0" 
+            title="YouTube video player" frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen></iframe>            
             </div>
-            <!-- End Item -->
+
+             <!-- End Item -->
             <div class="item">
-                <img src="./images/강원도2.jpg">
-                <div class="carousel-caption">
-                    <h3>
-                        Headline</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                        tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem
-                        ipsum dolor sit amet, consetetur sadipscing elitr.</p>
-                </div>
+                <img src="./images/campingforest.jpg" style="height :720px;">
             </div>
-            <!-- End Item -->
-            <div class="item">
-                <img src="./images/강원도2.jpg">
-                <div class="carousel-caption">
-                    <h3>
-                        Headline</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                        tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem
-                        ipsum dolor sit amet, consetetur sadipscing elitr.</p>
-                </div>
-            </div>
-            <!-- End Item -->
         </div>
         <!-- End Carousel Inner -->
         <ul class="nav nav-pills nav-justified">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"><a href="#">About<small>Lorem
-                ipsum dolor sit</small></a></li>
-            <li data-target="#myCarousel" data-slide-to="1"><a href="#">Projects<small>Lorem ipsum
-                dolor sit</small></a></li>
-            <li data-target="#myCarousel" data-slide-to="2"><a href="#">Portfolio<small>Lorem ipsum
-                dolor sit</small></a></li>
-            <li data-target="#myCarousel" data-slide-to="3"><a href="#">Services<small>Lorem ipsum
-                dolor sit</small></a></li>
+            <li data-target="#myCarousel" data-slide-to="0" class="active"><a href="#">뭐해? 나와!</a></li>
+            <li data-target="#myCarousel" data-slide-to="1"><a href="#">캠핑 노하우</a></li>
+            <li data-target="#myCarousel" data-slide-to="2"><a href="#">캠핑 필수템</a></li>
+            <li data-target="#myCarousel" data-slide-to="3"><a href="#">뭐해? 나와!</a></li>
         </ul>
     </div>
  </div>
+
     <!-- End Carousel -->
 <!-- ================================================================================================================================== -->
 <br/>

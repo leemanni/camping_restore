@@ -6,13 +6,13 @@
 	 */
 }
 table.up {
-  margin-bottom: 20px;
+  margin-bottom: 100px;	
   border-collapse: collapse;
   text-align: left;
   line-height: 1.5;
 
 }
-table.up thead th {
+table.up thead td {
   padding: 10px;
   font-weight: bold;
   vertical-align: top;
@@ -28,7 +28,7 @@ table.up tbody th {
   background: #f3f6f7;
 }
 table.up td {
-  /* width: 350px; */
+  width: 350px;
   padding: 10px;
   vertical-align: top;
   border-bottom: 1px solid #ccc;

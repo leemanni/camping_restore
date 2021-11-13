@@ -191,20 +191,23 @@
 			<div class="layout">
 				<ul class="camp_tab05">
 					<li class="on"><a href="#" class="camp_intro">캠핑장 소개</a></li>
-					<li id="c_guide"><a href="#" class="camp_guide">이용안내</a></li>
-					<li id="c_map"><a href="#" class="camp_map">위치/주변정보</a></li>
+					<li id="c_guide"><a href="${campDataVO.url}" class="camp_guide">예약안내</a></li>
+					<li id="c_map"><a href="list3?campNumber=${campNumber}" class="camp_map">위치/주변정보</a></li>
 					<li id="c_review"><a href="list2?campNumber=${campNumber}" class="camp_review">캠핑 여행후기</a></li>
-					<li id="c_notice"><a href="#" class="camp_notice">공지/이벤트</a></li>
+					<li id="c_notice"><a href="list4?campNumber=${campNumber}" class="camp_notice">캠핑장 이용수칙</a></li>
 				</ul>
 
 				<!-- 1개의 글 -->
 				<form class="updateForm" action="update" method="post">
-					<table class="up" width="1200px" align="center" border="1" cellpadding="5" cellspacing="0">
+					<table class="up" width="1200" align="center" border="1" cellpadding="5" cellspacing="0">
+					<thead>
 						<tr>
-							<td width="200px" align="center">글번호</td>
-							<td width="800px" align="center">이름</td>
-							<td width="200px" align="center">작성일</td>
+							<td width="200" align="center">글번호</td>
+							<td width="800" align="center">이름</td>
+							<td width="200" align="center">작성일</td>
 						</tr>
+					</thead>
+					<tbody>	
 						<tr>
 							<td align="center">${vo.idx}</td>
 							<td align="center">
@@ -221,7 +224,7 @@
 
 						<tr>
 						<c:if test="${manager==null}">
-							<td>비밀번호 확인</td>
+							<th>비밀번호 확인</th>
 							<td><input id="userPassword2" type="password" placeholder="비밀번호를 입력하세요" /></td>
 							<td align="center"><input type="button" class="btn btn-primary" onclick="passwordCheckFunction()" value="비밀번호 확인" /></td>
 						</c:if>
@@ -232,8 +235,8 @@
 						</c:if>
 						</tr>
 						<tr>
-							<td align="center">내용</td>
-							<th colspan="3"><textarea rows="10" name="content" style="resize: none; width: 98%;">${vo.content}</textarea></td>
+							<th align="center">내용</th>
+							<td colspan="3"><textarea rows="10" name="content" style="resize: none; width: 98%;">${vo.content}</textarea></td>
 						</tr>
 						<tr>
 							<td colspan="3" align="center"><input type="hidden" name="idx" value="${vo.idx}" />
@@ -252,6 +255,7 @@
 									onclick="location.href='list2?campNumber=${vo.campNumber}&currentPage=${currentPage}'" />
 							</td>
 						</tr>
+						</tbody>
 					</table>
 				</form>
 				<!-- 1개의 글 -->
