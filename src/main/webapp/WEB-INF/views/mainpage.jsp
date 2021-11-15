@@ -7,15 +7,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>캠핑 리뷰 사이트(이름 미정)</title>
+<title>뭐해? 나와!</title>
 <link rel="stylesheet" href="./css/bootstrap.css">
 <link rel="stylesheet" href="css/mainpage/mainpage.css">
 <link rel="stylesheet" href="css/mainpage/topmenu.css">
 <link rel="stylesheet" href="js/mainpage.mainpage.js">
+<link rel="stylesheet" href="css/content/navbar.css">
 <link rel="icon" href="images/favicon/favicon.ico" type="image/x-icon">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="./js/bootstrap.js"></script>
-
 </head>
 <body>
 
@@ -31,7 +31,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="mainpage">캠핑 리뷰 사이트(이름 미정)</a>
+			<a class="navbar-brand" href="mainpage">뭐해? 나와!</a>
 		</div>
 		
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -187,10 +187,10 @@
         </div>
         <!-- End Carousel Inner -->
         <ul class="nav nav-pills nav-justified">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"><a href="#">뭐해? 나와!</a></li>
-            <li data-target="#myCarousel" data-slide-to="1"><a href="#">캠핑 노하우</a></li>
-            <li data-target="#myCarousel" data-slide-to="2"><a href="#">캠핑 필수템</a></li>
-            <li data-target="#myCarousel" data-slide-to="3"><a href="#">뭐해? 나와!</a></li>
+            <li class="slide" data-target="#myCarousel" data-slide-to="0" ><a href="#">뭐해? 나와!</a></li>
+            <li class="slide" data-target="#myCarousel" data-slide-to="1"><a href="#">캠핑 노하우</a></li>
+            <li class="slide" data-target="#myCarousel" data-slide-to="2"><a href="#">캠핑 필수템</a></li>
+            <li class="slide" data-target="#myCarousel" data-slide-to="3"><a href="#">뭐해? 나와!</a></li>
         </ul>
     </div>
  </div>
@@ -217,33 +217,39 @@
 <!-- ================================================================================================================================== -->
 <br/>
 
-<footer style="background-color: #000000; color: #ffffff">
-	<div class="container">
-		<br/>
-		<div class="row">
-			<div class="col-sm-2" style="text-align: center;">
-				<h5>개발자: 전상욱</h5>
-			</div>
-			
-			<div class="col-sm-4">
-				<h5>E-mail: sangwook0217@gmail.com</h5>
-			</div>
-			
-			<div class="col-sm-4" style="text-align: center;">
-				<h5>입금 계좌: 카카오 뱅크 3333-12-4618614</h5>
-			</div>
-			
-			<div class="col-sm-2" style="text-align: center;">
-				<h5>스우파 공식 SNS</h5>
-				<div class="list-group">
-					<a href="https://program.genie.co.kr/swf/main" class="list-group-item">공식 홈페이지</a>
-					<a href="https://www.instagram.com/mnet_dance/" class="list-group-item">공식 인스타그램</a>
-					<a href="https://program.naver.com/p/18923570" class="list-group-item">공식 네이버TV</a>
+	<footer style="background-color: #000000; color: #ffffff">
+		<div class="container">
+			<br/>
+			<div class="row">
+				<div class="col-sm-3" style="text-align: center;">
+					<h5 class="dev_name"><br/></h5>
+					<h5 class="dev_name">개발자: 김재호</h5>
+					<h5 class="dev_name">개발자: 김호연</h5>
+					<h5 class="dev_name">개발자: 신영진</h5>
+					<h5 class="dev_name">개발자: 이원희</h5>
+					<h5 class="dev_name">개발자: 전상욱</h5>
+					<br>
+				</div>
+				
+				<div class="col-sm-6">
+					<h5 class="dev_name">개발자 문의처</h5>
+					<h5 class="dev_name">E-mail: kjh9442@naver.com</h5>
+					<h5 class="dev_name">E-mail: cjffydahs@naver.com</h5>
+					<h5 class="dev_name">E-mail: dndkdkdz@naver.com </h5>
+					<h5 class="dev_name">E-mail: hoyoun9051@naver.com</h5>
+					<h5 class="dev_name">E-mail: sangwook0217@gmail.com</h5>
+				</div>
+				
+				<div class="col-sm-3" style="text-align: center;">
+					<h5 class="dev_name"><br/></h5>
+					<h5 class="dev_name"><br/></h5>
+					<h5 class="dev_name"><br/></h5>
+					<h5 class="dev_name"><br/></h5>
+					<h5 class="dev_name">입금 계좌: 카카오 뱅크 3333-12-4618614</h5>
 				</div>
 			</div>
 		</div>
-	</div>
-</footer>
+	</footer>
 <!-- ================================================================================================================================== -->
 
 </body>

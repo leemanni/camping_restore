@@ -1,4 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +11,7 @@
 <link rel="stylesheet" href="css/mainpage/mainpage.css">
 <link rel="stylesheet" href="css/mainpage/topmenu.css">  <!-- 지역별 토글 지정돼 있음 자우면 안됨 -->
 <link rel="icon" href="images/favicon/favicon.ico" type="image/x-icon">
-
+<link rel="stylesheet" href="css/content/navbar.css">
 <script type="text/javascript" src="js/mainpage.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="./js/bootstrap.js"></script>
@@ -43,7 +46,7 @@
 </style>
 
 <link rel="icon" href="./p1/favicon1.ico">
-<title>캠핑장 길찾기</title>
+<title>뭐해? 나와!</title>
 </head>
 <body>
 <!-- ================================================================================================================================== -->
@@ -58,7 +61,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="mainpage">캠핑 리뷰 사이트(이름 미정)</a>
+			<a class="navbar-brand" href="mainpage">뭐해? 나와!</a>
 		</div>
 		
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -141,16 +144,26 @@
 				</li>
 				
 				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" 
-						data-toggle="dropdown" 
-						role="button" 
-						aria-haspopup="true" 
-						aria-expanded="false">
-						캠핑장 길찾기<span class="caret"></span>
+					<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+						<c:if test="${manager==null}">
+								로그인
+							</c:if>
+							<c:if test="${manager!=null}">
+								관리자등록
+							</c:if>
+							<span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
-						<li><a href="path">캠핑장 길찾기</a></li>
+						<c:if test="${manager==null}">
+							<li><a href="loginMain">로그인</a></li>
+						</c:if>
+						<c:if test="${manager!=null}">
+							<li><a href="register">관리자등록</a></li>
+							<li><a href="logout">로그아웃</a></li>
+						</c:if>
 					</ul>
+				</li>
 				</li>
 			</ul>
 
@@ -185,35 +198,38 @@
 <div id="map" style="width:70% ; height:700px; text-align: center; left:15%; right:15%;"></div>
 	
 <footer style="background-color: #000000; color: #ffffff">
-	<div class="container">
-	<br/>
-		<div class="row">
-			<div class="col-sm-2" style="text-align: center;">
-				<h5>개발자</h5>
-				<h5>전상욱</h5>
-			</div>
-			
-			<div class="col-sm-4">
-				<h5>E-mail</h5>
-				<h5>전상욱 : sangwook0217@gmail.com</h5>
-			</div>
-			
-			<div class="col-sm-4" style="text-align: center;">
-				<h5>입금 계좌</h5>
-				<h5>카카오 뱅크 3333-12-4618614</h5>
-			</div>
-			
-			<div class="col-sm-2" style="text-align: center;">
-				<h5>스우파 공식 SNS</h5>
-				<div class="list-group">
-					<a href="https://program.genie.co.kr/swf/main" class="list-group-item">공식 홈페이지</a>
-					<a href="https://www.instagram.com/mnet_dance/" class="list-group-item">공식 인스타그램</a>
-					<a href="https://program.naver.com/p/18923570" class="list-group-item">공식 네이버TV</a>
+		<div class="container">
+			<br/>
+			<div class="row">
+				<div class="col-sm-3" style="text-align: center;">
+					<h5 class="dev_name"><br/></h5>
+					<h5 class="dev_name">개발자: 김재호</h5>
+					<h5 class="dev_name">개발자: 김호연</h5>
+					<h5 class="dev_name">개발자: 신영진</h5>
+					<h5 class="dev_name">개발자: 이원희</h5>
+					<h5 class="dev_name">개발자: 전상욱</h5>
+					<br>
+				</div>
+				
+				<div class="col-sm-6">
+					<h5 class="dev_name">개발자 문의처</h5>
+					<h5 class="dev_name">E-mail: kjh9442@naver.com</h5>
+					<h5 class="dev_name">E-mail: cjffydahs@naver.com</h5>
+					<h5 class="dev_name">E-mail: dndkdkdz@naver.com </h5>
+					<h5 class="dev_name">E-mail: hoyoun9051@naver.com</h5>
+					<h5 class="dev_name">E-mail: sangwook0217@gmail.com</h5>
+				</div>
+				
+				<div class="col-sm-3" style="text-align: center;">
+					<h5 class="dev_name"><br/></h5>
+					<h5 class="dev_name"><br/></h5>
+					<h5 class="dev_name"><br/></h5>
+					<h5 class="dev_name"><br/></h5>
+					<h5 class="dev_name">입금 계좌: 카카오 뱅크 3333-12-4618614</h5>
 				</div>
 			</div>
 		</div>
-	</div>
-</footer>
+	</footer>
 <!-- <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6c77ab0a5c207368771cf75c4d79f600"></script>

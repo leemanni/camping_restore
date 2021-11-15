@@ -144,6 +144,9 @@
     margin-top: 20px;
 }
 
+.slide:active{
+	background-color: green;
+}
 
 
 

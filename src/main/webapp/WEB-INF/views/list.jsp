@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="css/mainpage/mainpage.css">
 <link rel="stylesheet" href="css/mainpage/topmenu.css">  <!-- 지역별 토글 지정돼 있음 자우면 안됨 -->
 <link rel="stylesheet" type="text/css" href="css/list/style.css" />
+<link rel="stylesheet" href="css/content/navbar.css">
 <style type="text/css">
 
 .dev_name{
@@ -23,7 +24,7 @@
 <!-- <script type="text/javascript" src="js/mainpage.js"></script> -->
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="./js/bootstrap.js"></script>
-<title>캠핑장</title>
+<title>뭐해? 나와!</title>
 </head>
 <body>
 <nav class="navbar navbar-default">
@@ -36,7 +37,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="mainpage">캠핑 리뷰 사이트(이름 미정)</a>
+			<a class="navbar-brand" href="mainpage">뭐해? 나와!</a>
 		</div>
 		
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -271,9 +272,10 @@
 	
 	<footer style="background-color: #000000; color: #ffffff">
 		<div class="container">
-			
+			<br/>
 			<div class="row">
 				<div class="col-sm-3" style="text-align: center;">
+					<h5 class="dev_name"><br/></h5>
 					<h5 class="dev_name">개발자: 김재호</h5>
 					<h5 class="dev_name">개발자: 김호연</h5>
 					<h5 class="dev_name">개발자: 신영진</h5>
@@ -284,11 +286,18 @@
 				
 				<div class="col-sm-6">
 					<h5 class="dev_name">개발자 문의처</h5>
-					<h5 class="dev_name">E-mail: sangwook0217@gmail.com</h5>
+					<h5 class="dev_name">E-mail: kjh9442@naver.com</h5>
 					<h5 class="dev_name">E-mail: cjffydahs@naver.com</h5>
+					<h5 class="dev_name">E-mail: dndkdkdz@naver.com </h5>
+					<h5 class="dev_name">E-mail: hoyoun9051@naver.com</h5>
+					<h5 class="dev_name">E-mail: sangwook0217@gmail.com</h5>
 				</div>
 				
 				<div class="col-sm-3" style="text-align: center;">
+					<h5 class="dev_name"><br/></h5>
+					<h5 class="dev_name"><br/></h5>
+					<h5 class="dev_name"><br/></h5>
+					<h5 class="dev_name"><br/></h5>
 					<h5 class="dev_name">입금 계좌: 카카오 뱅크 3333-12-4618614</h5>
 				</div>
 			</div>
