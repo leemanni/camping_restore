@@ -188,10 +188,10 @@
    				<input type="radio" name="slide" id="slide3">
    				<input type="radio" name="slide" id="slide4">
 				    <ul id="imgholder" class="imgs">
-        				<li><img src="./images/강원도.jpg" width="450" height="510"></li>
-        				<li><img src="./images/강원도.jpg" width="450" height="510"></li>
-        				<li><img src="./images/강원도.jpg" width="450" height="510"></li>
-        				<li><img src="./images/강원도.jpg" width="450" height="510"></li>
+        				<li><img src="./images/슬라이드1.JPG" width="450" height="510"></li>
+        				<li><img src="./images/슬라이드2.JPG" width="450" height="510"></li>
+        				<li><img src="./images/슬라이드3.JPG" width="450" height="510"></li>
+        				<li><img src="./images/슬라이드4.JPG" width="450" height="510"></li>
     				</ul>
    					<div class="bullets">
        					<label for="slide1">&nbsp;</label>
@@ -205,7 +205,7 @@
 		</div><!--col-sm-6-->
 		
 			<div class="col-md-6 right-side">
-				<h3>회원가입</h3>
+				<h3>관리자 등록</h3>
 		
 			<!--Form with header-->
 				<div class="form">

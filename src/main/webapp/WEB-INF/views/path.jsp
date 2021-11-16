@@ -143,27 +143,18 @@
             		</ul>
 				</li>
 				
+				
 				<li class="dropdown">
-					<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-						<c:if test="${manager==null}">
-								로그인
-							</c:if>
-							<c:if test="${manager!=null}">
-								관리자등록
-							</c:if>
-							<span class="caret"></span>
+					<a href="#" class="dropdown-toggle" 
+						data-toggle="dropdown" 
+						role="button" 
+						aria-haspopup="true" 
+						aria-expanded="false">
+						캠핑장 길찾기<span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
-						<c:if test="${manager==null}">
-							<li><a href="loginMain">로그인</a></li>
-						</c:if>
-						<c:if test="${manager!=null}">
-							<li><a href="register">관리자등록</a></li>
-							<li><a href="logout">로그아웃</a></li>
-						</c:if>
+						<li><a href="path">캠핑장 길찾기</a></li>
 					</ul>
-				</li>
 				</li>
 			</ul>
 

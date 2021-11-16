@@ -159,7 +159,7 @@
 					<header class="camp_top_info">
 						<div class="camp_info_box">
 							<div class="img_b">
-								<img src="./images/camping_0_0.png" />
+								<img src="./images/camping_1_${campNumber}.jpg" />
 							</div>
 
 							<div class="cont_tb">

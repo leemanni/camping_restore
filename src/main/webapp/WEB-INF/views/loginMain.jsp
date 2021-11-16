@@ -172,7 +172,6 @@
    				<input type="radio" name="slide" id="slide2">
    				<input type="radio" name="slide" id="slide3">
    				<input type="radio" name="slide" id="slide4">
-   				<input type="radio" name="slide" id="slide5">
 				    <ul id="imgholder" class="imgs">
         				<li><img src="./images/슬라이드1.JPG" width="450" height="510"></li>
         				<li><img src="./images/슬라이드2.JPG" width="450" height="510"></li>

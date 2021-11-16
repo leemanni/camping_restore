@@ -169,7 +169,7 @@
 					<header class="camp_top_info">
 						<div class="camp_info_box">
 							<div class="img_b">
-								<img src="./images/camping_0_0.png" />
+								<img src="./images/camping_1_${campNumber}.jpg" />
 							</div>
 
 							<div class="cont_tb">
@@ -235,9 +235,9 @@
 						
 						<div class="camp_intro">
 							<ul>
-								<li class="col_03 img_box"><img src="./images/camping_0_0.png" class="imgFit"></li>
-								<li class="col_03 img_box"><img src="./images/camping_0_0.png" class="imgFit"></li>
-								<li class="col_03 img_box"><img src="./images/camping_0_0.png" class="imgFit"></li>
+								<li class="col_03 img_box"><img src="./images/camping_2_${campNumber}.jpg" class="imgFit"></li>
+								<li class="col_03 img_box"><img src="./images/camping_3_${campNumber}.jpg" class="imgFit"></li>
+								<li class="col_03 img_box"><img src="./images/camping_4_${campNumber}.jpg" class="imgFit"></li>
 							</ul>
 							<p class="camp_intro_txt">
 								<span>
@@ -249,7 +249,7 @@
 							<div class="box_photo">
 								<div class="container">
 									<div class="row">
-										<c:forEach begin="0" end="2" step="1" var="i">
+										<c:forEach begin="5" end="10" step="1" var="i">
 										<div class="col-sm-4">
 											<div class="item">
 												<!-- 이름_index(0~n)_capmnum.jpg -->

@@ -50,7 +50,7 @@ public class HomeController {
 	
 	/**
 	 * 관리자 로그인 페이지 연결
-list()	 */
+	 */
 	@RequestMapping("/loginMain")
 	public String loginMain(HttpServletRequest request, Model model) {
 		return "loginMain";
@@ -70,16 +70,13 @@ list()	 */
 		int check = dao.loginCheck(hmap);
 		
 		if(check > 0) {
-			System.out.println("true");
-//			세션 테스트
 			HttpSession session = request.getSession();
-//			세션 변수 저장 => 세션이 저장됐다(= 관리자 로그인이 됐다) => h1 테그(list.jsp) 에서 true 라고 뜰거임
+//			세션 변수 저장 => 세션이 저장
 			session.setAttribute("manager", "true");
 		}else {
-			System.out.println("false");
+			return "redirect:loginMain";
 		}
-		
-		return "redirect:list";
+		return "redirect:mainpage";
 	}
 	
 	
@@ -141,7 +138,7 @@ list()	 */
 		hmap.put("campNumber", campNumber);
 		
 		campingList.setList(dao.selectList(hmap));
-		System.out.println(campingList.getList());
+//		System.out.println(campingList.getList());
 		model.addAttribute(campingList);
 		model.addAttribute("currentPage", currentPage);
 		model.addAttribute("campNumber", campNumber);
@@ -185,7 +182,7 @@ list()	 */
 		hmap.put("campNumber", campNumber);
 		
 		campingList.setList(dao.selectList(hmap));
-		System.out.println(campingList.getList());
+//		System.out.println(campingList.getList());
 		model.addAttribute(campingList);
 		model.addAttribute("currentPage", currentPage);
 		model.addAttribute("campNumber", campNumber);
@@ -256,7 +253,7 @@ list()	 */
 		hmap.put("campNumber", campNumber);
 		
 		campingList.setList(dao.selectList(hmap));
-		System.out.println(campingList.getList());
+//		System.out.println(campingList.getList());
 		model.addAttribute(campingList);
 		model.addAttribute("currentPage", currentPage);
 		model.addAttribute("campNumber", campNumber);
@@ -279,7 +276,7 @@ list()	 */
 	 */
 	@RequestMapping("/up")
 	public String up(HttpServletRequest request, Model model) {
-		System.out.println("컨트롤러의 increment() 메소드");
+//		System.out.println("컨트롤러의 increment() 메소드");
 	
 		CampingDAO dao = sqlSession.getMapper(CampingDAO.class);
 		
@@ -308,7 +305,7 @@ list()	 */
 	 */
 	@RequestMapping("/down")
 	public String down(HttpServletRequest request, Model model) {
-		System.out.println("컨트롤러의 increment() 메소드");
+//		System.out.println("컨트롤러의 increment() 메소드");
 	
 		CampingDAO dao = sqlSession.getMapper(CampingDAO.class);
 		
@@ -335,7 +332,7 @@ list()	 */
 	
 	@RequestMapping("/update")
 	public String update(HttpServletRequest request, Model model, CampingVO campingVO) {
-		System.out.println("컨트롤러의 update() 메소드");
+//		System.out.println("컨트롤러의 update() 메소드");
 		int currentPage = 1;
 		int campNumber = 0;
 		try {
@@ -362,7 +359,7 @@ list()	 */
 	 */
 	@RequestMapping("/delete")
 	public String delete(HttpServletRequest request, Model model) {
-		System.out.println("컨트롤러의 update() 메소드");
+//		System.out.println("컨트롤러의 update() 메소드");
 		int currentPage = 1;
 		int campNumber = 0;
 		try {
