@@ -37,7 +37,7 @@
 			<ul class="nav navbar-nav">
 				
 				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" 
+					<a href="list?campNumber=${campNumber}" class="dropdown-toggle" 
 						data-toggle="dropdown" 
 						role="button" 
 						aria-haspopup="true" 
@@ -114,7 +114,7 @@
 				
 				
 				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" 
+					<a href="" class="dropdown-toggle" 
 						data-toggle="dropdown" 
 						role="button" 
 						aria-haspopup="true" 
@@ -217,7 +217,7 @@
 					<div class="layout">
 						
 						<ul class="camp_tab05">
-							<li class="on"><a href="#" class="camp_intro">캠핑장 소개</a></li>
+							<li class="on"><a href="list?campNumber=${campNumber}" class="camp_intro">캠핑장 소개</a></li>
 							<li id="c_guide"><a href="${campDataVO.url}" class="camp_guide">예약안내</a></li>
 							<li id="c_map"><a href="list3?campNumber=${campNumber}" class="camp_map">위치/주변정보</a></li>
 							<li id="c_review"><a href="list2?campNumber=${campNumber}" class="camp_review">캠핑 여행후기</a></li>

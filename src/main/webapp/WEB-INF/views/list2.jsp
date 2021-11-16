@@ -215,7 +215,7 @@
 					<div class="layout">
 						
 						<ul class="camp_tab05">
-							<li class="on"><a href="#" class="camp_intro">캠핑장 소개</a></li>
+							<li class="on"><a href="list?campNumber=${campNumber}" class="camp_intro">캠핑장 소개</a></li>
 							<li id="c_guide"><a href="${campDataVO.url}" class="camp_guide">예약안내</a></li>
 							<li id="c_map"><a href="list3?campNumber=${campNumber}" class="camp_map">위치/주변정보</a></li>
 							<li id="c_review"><a href="list2?campNumber=${campNumber}" class="camp_review">캠핑 여행후기</a></li>
@@ -239,7 +239,7 @@
 						<!-- 글이 1건도 없을 때 -->
 						<c:if test="${list.size() == 0 }">
 						<tr>
-							<td>
+							<td colspan="8" align="center">
 								<h1>글이 없습니다.</h1>
 							</td>
 						</tr>
@@ -294,7 +294,7 @@
 						</c:if>
 						 <!-- 페이지 이동버튼 -->
 						 <tr>
-							<td class="table-lastdata" align="center" colspan="5">
+							<td class="table-lastdata" align="center" colspan="8">
 							<!-- 처음으로 -->
 								<c:if test="${campingList.currentPage > 1}">
 									<a onclick="location.href='?campNumber=${campNumber}&currentPage=1'" >
@@ -302,11 +302,10 @@
 									</a>
 								</c:if>
 								
-								<c:if test="${campingList.currentPage <= 1}">
+								<c:if test="${campingList.currentPage <= 1 && list.size() == 0}">
 									<a class=btn-none >
 										<i class="fas fa-backward"></i>
 									</a>
-									<!-- <button class="button button2" type="button" title="이미 첫 페이지입니다." disabled="disabled">처음</button> -->
 								</c:if>
 							<!-- 10페이지 앞으로 -->
 								<c:if test="${campingList.startPage > 1}">
@@ -314,7 +313,7 @@
 										<i class="fas fa-chevron-left"></i>
 									</a>
 								</c:if>
-								<c:if test="${campingList.startPage <= 1}">
+								<c:if test="${campingList.startPage <= 1 }">
 									<a class=btn-none>
 										<i class="fas fa-chevron-left"></i>
 									</a>
@@ -337,7 +336,7 @@
 										<i class="fas fa-chevron-right"></i>
 									</a>
 								</c:if>
-								<c:if test="${campingList.currentPage >= campingList.totalPage}">
+								<c:if test="${campingList.currentPage >= campingList.totalPage && list.size() == 0}">
 									<a class="btn-none" >
 										<i class="fas fa-chevron-right"></i>
 									</a>
@@ -349,8 +348,8 @@
 										<i class="fas fa-forward" ></i>
 									</a>
 								</c:if>
-								<c:if test="${campingList.currentPage >= campingList.totalPage}">
-									<a class=btn-none onclick="location.href='?campNumber=${campNumber}&currentPage=${campingList.totalPage}'">
+								<c:if test="${campingList.currentPage >= campingList.totalPage && list.size() == 0}">
+									<a class=btn-none>
 										<i class="fas fa-forward" ></i>
 									</a>
 								</c:if>
