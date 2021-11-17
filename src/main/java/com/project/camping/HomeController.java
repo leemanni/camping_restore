@@ -98,7 +98,6 @@ public class HomeController {
 		campingVO.setCampNumber(Integer.parseInt(request.getParameter("campNumber")));
 		model.addAttribute("campNumber", campingVO.getCampNumber());
 		dao.insert(campingVO);
-//		System.out.println(campingVO.getCampNumber());
 		ctx.close();
 		return "redirect:list2";
 	}
@@ -266,6 +265,18 @@ public class HomeController {
 		return "list3";
 	}
 	
+	
+	@RequestMapping("/list5")
+	public String list5(HttpServletRequest request, Model model) {
+		int campNumber = 1; // 캠핑장 구분 index
+		try {
+			campNumber = Integer.parseInt(request.getParameter("campNumber"));
+		} catch (Exception e) {
+		}
+		model.addAttribute("campNumber", campNumber);
+		return "list5";
+	}
+
 	
 	
 	/**

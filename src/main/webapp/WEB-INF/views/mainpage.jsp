@@ -63,14 +63,14 @@
 		                  <li><a tabindex="-1" href="list?campNumber=6">왕산 오토캠핑장</a></li>
 		                  <li><a tabindex="-1" href="list?campNumber=7">포천 프로미스 캠프</a></li>
 		                  <li><a tabindex="-1" href="list?campNumber=8">하늘 숲 글램핑파크</a></li>
-		                  <li><a tabindex="-1" href="#">호수산장관광농원</a></li> <!--자료 없음  -->
+		                  <li><a tabindex="-1" href="list5">호수산장관광농원</a></li> <!--자료 없음  -->
 		                </ul>	
 		              </li>
 		              
 		              <li class="dropdown-submenu">
 		              	<a tabindex="-1" href="#">강원</a>	
 		              	<ul class="dropdown-menu">
-		                  <li><a tabindex="-1" href="#">동강 전망휴양림 오토캠핑장</a></li> <!--자료없음  -->
+		                  <li><a tabindex="-1" href="list5">동강 전망휴양림 오토캠핑장</a></li> <!--자료없음  -->
 		                  <li><a tabindex="-1" href="list?campNumber=12">별마로 빌리지</a></li>
 		                  <li><a tabindex="-1" href="list?campNumber=11">소금강 오토캠프장</a></li>
 		                </ul>	
@@ -81,7 +81,7 @@
 		              <li class="dropdown-submenu">
 		              	<a tabindex="-1" href="#">충남</a>	
 		              	<ul class="dropdown-menu">
-		                  <li><a tabindex="-1" href="#">솔바람 캠핑장</a></li> <!-- 데이터 없음 -->
+		                  <li><a tabindex="-1" href="list5">솔바람 캠핑장</a></li> <!-- 데이터 없음 -->
 		                  <li><a tabindex="-1" href="list?campNumber=9">태안 캠핑코리아</a></li>
 		                </ul>	
 		              </li>
@@ -89,14 +89,14 @@
 		              <li class="dropdown-submenu">
 		              	<a tabindex="-1" href="#">전북</a>	
 		              	<ul class="dropdown-menu"> 
-		                  <li><a tabindex="-1" href="#">변산반도국립공원 고사포 야영장</a></li>  <!-- 데이터 없음 -->
+		                  <li><a tabindex="-1" href="list5">변산반도국립공원 고사포 야영장</a></li>  <!-- 데이터 없음 -->
 		                </ul>	
 		              </li>	
 		              
-		              <li><a tabindex="-1" href="#">전남</a></li>		              		              		              
+		              <li><a tabindex="-1" href="list5">전남</a></li>		              		              		              
 
 		              <li class="dropdown-submenu">
-		              	<a tabindex="-1" href="#">경북</a>	
+		              	<a tabindex="-1" href="list5">경북</a>	
 		              	<ul class="dropdown-menu">
 		                  <li><a tabindex="-1" href="list?campNumber=10">스카이글램핑</a></li>
 		                </ul>	
@@ -105,11 +105,11 @@
 		              <li class="dropdown-submenu">
 		              	<a tabindex="-1" href="#">경남</a>	
 		              	<ul class="dropdown-menu">
-		                  <li><a tabindex="-1" href="#">사천 비토 솔섬 오토캠핑장</a></li>  <!-- 데이터 없음 -->
+		                  <li><a tabindex="-1" href="list5">사천 비토 솔섬 오토캠핑장</a></li>  <!-- 데이터 없음 -->
 		                </ul>	
 		              </li>	
 		              
-		              <li><a tabindex="-1" href="#">제주</a></li>  <!-- 데이터 없음 -->			               	              
+		              <li><a tabindex="-1" href="list5">제주</a></li>  <!-- 데이터 없음 -->			               	              
             		</ul>
 				</li>
 				
@@ -167,17 +167,18 @@
 
             <!-- End Item -->
             <div class="item">
-            <iframe width="100%" height="720px" src="https://www.youtube.com/embed/FIreJ82UKHM" 
-            title="YouTube video player" frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen></iframe>
+	            <<!-- iframe width="100%" height="720px" src="https://www.youtube.com/embed/FIreJ82UKHM" 
+	            title="YouTube video player" frameborder="0" 
+	            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+	            allowfullscreen></iframe> -->
+	            <img src="./images/mainphotho2.jpg" style="height :720px;">
             </div>
             <!-- End Item -->
             <div class="item">
-            <iframe width="100%" height="720px" src="https://www.youtube.com/embed/ThybOea6rZ0" 
-            title="YouTube video player" frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen></iframe>            
+	            <iframe width="100%" height="720px" src="https://www.youtube.com/embed/ThybOea6rZ0" 
+	            title="YouTube video player" frameborder="0" 
+	            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+	            allowfullscreen></iframe>            
             </div>
 
              <!-- End Item -->
@@ -187,10 +188,10 @@
         </div>
         <!-- End Carousel Inner -->
         <ul class="nav nav-pills nav-justified">
-            <li class="slide" data-target="#myCarousel" data-slide-to="0" ><a href="#">뭐해? 나와!</a></li>
-            <li class="slide" data-target="#myCarousel" data-slide-to="1"><a href="#">캠핑 노하우</a></li>
-            <li class="slide" data-target="#myCarousel" data-slide-to="2"><a href="#">캠핑 필수템</a></li>
-            <li class="slide" data-target="#myCarousel" data-slide-to="3"><a href="#">뭐해? 나와!</a></li>
+            <li class="slide" data-target="#myCarousel" data-slide-to="0" ><a href="#" class="slide-font">뭐</a></li>
+            <li class="slide" data-target="#myCarousel" data-slide-to="1" ><a href="#" class="slide-font">해?</a></li>
+            <li class="slide" data-target="#myCarousel" data-slide-to="2" ><a href="#" class="slide-font">나</a></li>
+            <li class="slide" data-target="#myCarousel" data-slide-to="3" ><a href="#" class="slide-font">와!</a></li>
         </ul>
     </div>
  </div>
@@ -234,9 +235,9 @@
 				<div class="col-sm-6">
 					<h5 class="dev_name">개발자 문의처</h5>
 					<h5 class="dev_name">E-mail: kjh9442@naver.com</h5>
-					<h5 class="dev_name">E-mail: cjffydahs@naver.com</h5>
-					<h5 class="dev_name">E-mail: dndkdkdz@naver.com </h5>
 					<h5 class="dev_name">E-mail: hoyoun9051@naver.com</h5>
+					<h5 class="dev_name">E-mail: dndkdkdz@naver.com </h5>
+					<h5 class="dev_name">E-mail: cjffydahs@naver.com</h5>
 					<h5 class="dev_name">E-mail: sangwook0217@gmail.com</h5>
 				</div>
 				

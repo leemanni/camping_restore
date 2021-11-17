@@ -17,10 +17,18 @@
 <script type="text/javascript" src="./js/bootstrap.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6c77ab0a5c207368771cf75c4d79f600"></script>
 
+<style type="text/css">
+.yet{
+	margin-bottom: 130px;
+}
+img{
+	width: 80%
+}
+h1{
+	margin-top: 40px;
+}
 
-
-
-
+</style>
 
 <title>뭐해? 나와!</title>
 </head>
@@ -159,123 +167,19 @@
 			</div>
 		</div>
 </nav>
-	<!--시작-->
-	<section id="section1" style="right: 0px">
-		<div id="cont_inner">
-			<div class="sub_layout layout">
-				<article>
-					<header class="camp_top_info">
-						<div class="camp_info_box">
-							<div class="img_b">
-								<img src="./images/camping_1_${campNumber}.jpg" />
-							</div>
-
-							<div class="cont_tb">
-								<table class="table">
-									<colgroup>
-										<col style="width: 30%;" />
-										<col style="width: 70%;" />
-									</colgroup>
-									<tbody>
-										<tr>
-											<th scope="col">이름</th>
-											<!-- <td>가평 달빛정원글랭핑 캠핑</td> -->
-											<td>${campDataVO.name}</td>
-										</tr>
-										<tr>
-											<th scope="col">주소</th>
-											<td>${campDataVO.address}</td>
-										</tr>
-										<tr>
-											<th scope="col">위도</th>
-											<td>${campDataVO.latitude}</td>
-										</tr>
-										<tr>
-											<th scope="col">경도</th>
-											<td>${campDataVO.longitude}</td>
-										</tr>
-										<tr>
-											<th scope="col">입실 시간</th>
-											<td>${campDataVO.inTime}</td>
-										</tr>
-										<tr>
-											<th scope="col">퇴실 시간</th>
-											<td>${campDataVO.outTime}</td>
-										</tr>
-										<tr>
-											<th scope="col">홈페이지</th>
-											<td><a href="${campDataVO.url}">홈페이지 바로가기</a>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
-					</header>
-				</article>
-			</div>
-			<!-- 끝 -->
-		
-			
-			<!--시작-->
-			<div id="contents">
-				<div class="camp_cont_w">
-					<div class="line_100">
-						<span class="skip"></span>
-					</div>
-					<div class="layout">
-						<ul class="camp_tab05">
-							<li class="on"><a href="list?campNumber=${campNumber}" class="camp_intro">캠핑장 소개</a></li>
-							<li id="c_guide"><a href="${campDataVO.url}" class="camp_guide">예약안내</a></li>
-							<li id="c_map"><a href="list3?campNumber=${campNumber}" class="camp_map">위치/주변정보</a></li>
-							<li id="c_review"><a href="list2?campNumber=${campNumber}" class="camp_review">캠핑 여행후기</a></li>
-							<li id="c_notice"><a href="list4?campNumber=${campNumber}" class="camp_notice">캠핑장 이용수칙</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<div id="contents">
-				<div id="map" style="width:70% ; height:700px; text-align: center; left:15%; right:15%;"></div>
-				<script>
-					window.onload = function() {
-						var latitude = ${campDataVO.latitude};
-						var longitude =${campDataVO.longitude};
-						var name = '${campDataVO.name}';
-						var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
-								    mapOption = { 
-								        center: new kakao.maps.LatLng(latitude, longitude), // 지도의 중심좌표
-								        level: 5 // 지도의 확대 레벨
-								    };
-								
-						var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-						var endadd = "";
-						// 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
-						var position = 
-						    {
-								
-								content: '<div class=\'mapinfo\'><a href="https://map.kakao.com/link/to/'+name+','+latitude+',' + longitude +'"'+'style="color:blue" target="_blank">'+name+'</a></div>' ,
-						        latlng: new kakao.maps.LatLng(latitude, longitude)
-						    };
-						/* 아래와 같이도 할 수 있습니다 */
-						
-						    // 마커를 생성합니다
-						    var marker = new kakao.maps.Marker({
-						        map: map, // 마커를 표시할 지도
-						        position: position.latlng // 마커의 위치
-						    });
-						
-						    // 마커에 표시할 인포윈도우를 생성합니다 
-						    var infowindow = new kakao.maps.InfoWindow({
-						        content: position.content // 인포윈도우에 표시할 내용
-						    });
-						    infowindow.open(map, marker);
-					}
-			</script>
-			</div>
-			
-		</div>
-	</section>
 	
-	<footer style="background-color: #000000; color: #ffffff">
+<div class="container yet">
+	<div class="contents">
+		<img alt="" src="images/notyet.jpg">
+		<h1>페이지 준비중입니다.</h1>
+		<br/>
+		<h2>죄송합니다. 현재 작업 진행중입니다. </h2>
+		<h2>조금만 더 시간을 주시면 조속히 페이지 업데이트 하겠습니다.</h2>
+	</div>
+</div>	
+	
+	
+<footer style="background-color: #000000; color: #ffffff">
 		<div class="container">
 			<br/>
 			<div class="row">
